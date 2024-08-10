@@ -2,12 +2,14 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import Navbar01 from '../components/Navbar01'; // Ensure Navbar01 is web-compatible or use conditional rendering
+import Footer01 from '../components/Footer01'; // Importing of Footer01
 
 const WelcomePage = () => {
   return (
     <View style={styles.container}>
       <Text>Welcome to the Welcome Page!</Text>
       <Navbar01 /> {/* Ensure Navbar01 is properly adapted or rendered conditionally */}
+      <Footer01 />
     </View>
   );
 };

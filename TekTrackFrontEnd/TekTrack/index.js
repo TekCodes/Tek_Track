@@ -15,4 +15,6 @@ root.render(
     <App />
   </Router>
 );
+// Web Bundling failed 336ms index.js (1 module)
+// Unable to resolve "react-router-dom" from "index.js"
 
