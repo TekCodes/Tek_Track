@@ -1,8 +1,6 @@
 import React from 'react';
 import '../styles/footer.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faTwitter, faInstagram, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
-import logo from '../images/logowhite.png'; // Ensure the logo image is in the correct path
+import logo from '../images/logo-black.png'; // Ensure the logo image is in the correct path
 
 const Footer = () => {
   return (
@@ -16,40 +14,26 @@ const Footer = () => {
             <h4>company</h4>
             <ul>
               <li>
-                <a href="#">about us</a>
+                <a href="#">Home</a>
               </li>
               <li>
-                <a href="#">our services</a>
+                <a href="#">Find Jobs</a>
               </li>
             </ul>
           </div>
           <div className="footer-col right-align">
-            <h4>contact us</h4>
+            <h4>Add Jobs</h4>
             <ul>
               <li>
-                <a href="#">FAQ</a>
+                <a href="#">Saved Jobs</a>
               </li>
               <li>
-                <a href="#">Other</a>
+                <a href="#">Profile</a>
               </li>
             </ul>
           </div>
           <div className="footer-col right-align">
-            <h4>follow us</h4>
-            <div className="social-links">
-              <a href="#">
-                <FontAwesomeIcon icon={faFacebookF} />
-              </a>
-              <a href="#">
-                <FontAwesomeIcon icon={faTwitter} />
-              </a>
-              <a href="#">
-                <FontAwesomeIcon icon={faInstagram} />
-              </a>
-              <a href="#">
-                <FontAwesomeIcon icon={faLinkedinIn} />
-              </a>
-            </div>
+            <h4>Settings</h4>
           </div>
         </div>
       </div>
