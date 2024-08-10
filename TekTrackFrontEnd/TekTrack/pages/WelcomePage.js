@@ -1,14 +1,23 @@
-import React, { useRef } from 'react';
-import Navbar from '../components/navbar';
+// WelcomePage.js
+import React from 'react';
+import { View, Text, StyleSheet } from 'react-native';
+import Navbar01 from '../components/Navbar01'; // Ensure Navbar01 is web-compatible or use conditional rendering
 
 const WelcomePage = () => {
-    const loginref = useRef(null);
+  return (
+    <View style={styles.container}>
+      <Text>Welcome to the Welcome Page!</Text>
+      <Navbar01 /> {/* Ensure Navbar01 is properly adapted or rendered conditionally */}
+    </View>
+  );
+};
 
-    return(
-        <div className="welcome-page">
-            <Navbar />
-        </div>
-    );
-}
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 
 export default WelcomePage;
