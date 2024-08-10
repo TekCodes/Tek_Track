@@ -1,21 +1,17 @@
+// Navbar01.js
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import '../styles/navbar.css';
-import LogoNoBg from '../assets/images/logo-white.png';
+import { Link } from 'react-router-dom';
+import '../assets/styles/navbar.css'; // Ensure styles are properly loaded
 
-function Navbar() {
-  const navigate = useNavigate();
-
-  const handleLogout = e => {
+function Navbar01() {
+  const handleLogout = (e) => {
     e.preventDefault();
     localStorage.removeItem('id_token');
-    navigate('/');
+    // Handle logout logic
   };
-
 
   return (
     <nav className="navbar">
-      {/* <img src={LogoNoBg} alt="Logo" className="navbar-logo" /> */}
       <ul className="nav-list">
         <li className="nav-item">
           <Link to="/">Home</Link>
@@ -30,7 +26,6 @@ function Navbar() {
           <Link to="/team">Meet The Team</Link>
         </li>
       </ul>
-      <div className="account-info"></div>
       <div className="nav-item logout-button">
         <button onClick={handleLogout}>Logout</button>
       </div>
@@ -38,4 +33,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default Navbar01;
