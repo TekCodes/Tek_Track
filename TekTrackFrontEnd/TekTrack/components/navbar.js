@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/navbar.css';
-import LogoNoBg from '../images/logoandname.png';
+import LogoNoBg from '../assets/images/logo-white.png';
 
 function Navbar() {
   const navigate = useNavigate();
