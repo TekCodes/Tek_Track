@@ -28,8 +28,8 @@ body {
   bottom: 0;
   width: 100%;
   padding: 20px 0;
-  background-color: #0d6484;
-  color: white;
+  background-color: rgb(128, 216, 135);
+  color: black;
   text-align: left;
   z-index: 10; /* Make sure the footer is above other content */
 }

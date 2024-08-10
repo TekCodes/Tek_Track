@@ -7,9 +7,6 @@ const Footer = () => {
     <footer className="footer">
       <div className="container">
         <div className="row">
-          <div className="footer-col">
-            <img src={logo} alt="Company Logo" style={{ maxWidth: '100%', height: 'auto' }} />
-          </div>
           <div className="footer-col right-align">
             <h4>company</h4>
             <ul>
