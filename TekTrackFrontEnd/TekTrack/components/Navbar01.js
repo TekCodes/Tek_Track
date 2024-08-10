@@ -12,7 +12,7 @@ function Navbar() {
     navigate('/');
   };
 
-  // example balances
+
   return (
     <nav className="navbar">
       {/* <img src={LogoNoBg} alt="Logo" className="navbar-logo" /> */}
