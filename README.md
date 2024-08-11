@@ -6,5 +6,4 @@ At TechTrack, we understand that navigating the tech industry can be both exciti
 
 Get Started Now!
 
-![app sample](https://github.com/user-attachments/assets/95425036-cf5d-405c-9a89-0fb52e7be6b9)
-
+![AppSample](https://github.com/user-attachments/assets/0680d514-923d-4aec-9361-3eb44a135bcf)
