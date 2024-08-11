@@ -1,76 +1,86 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
-html,
-body {
-  height: 100%; /* Make sure the html and body are at least the height of the viewport */
+/* Base styles for HTML and body */
+html, body {
+  height: 100%;
   margin: 0;
   padding: 0;
-  overflow-x: hidden; /* Prevent horizontal overflow */
+  overflow-x: hidden;
 }
 
+/* Main content area */
 #main-content {
-  min-height: calc(100vh - 120px); /* Adjust 120px to the combined height of your navbar and footer if different */
+  min-height: calc(100vh - 120px); /* Adjust based on navbar and footer height */
   display: flex;
   flex-direction: column;
 }
 
+/* Container to center content and manage layout */
 .container {
-  flex: 1 0 auto; /* Flex container to take available space */
-  max-width: 1170px; /* Max width for the main container */
-  margin: auto; /* Centering the main container */
+  flex: 1 0 auto;
+  max-width: 1170px;
+  margin: auto;
   display: flex;
-  flex-direction: column; /* Stack child elements vertically */
+  flex-direction: column;
 }
 
+/* Footer styling */
 .footer {
-  position: relative; /* Fix the position */
+  position: relative;
   left: 0;
   bottom: 0;
   width: 100%;
-  padding: 20px 0;
+  padding: 5px 0;
   background-color: rgb(128, 216, 135);
   color: black;
   text-align: left;
-  z-index: 10; /* Make sure the footer is above other content */
+  z-index: 10;
 }
 
+/* Row styling for footer columns */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Distribute columns evenly */
+  margin-bottom: 10px; /* Reduced space between rows */
+}
+
+/* Styling for individual columns */
 .footer-col {
-  width: 20%; /* Default width */
-  padding: 0 15px; /* Padding for inner spacing */
-  margin-bottom: 0; /* Reset bottom margin */
+  flex: 1; /* Allows columns to grow equally */
+  padding: 0 15px;
+  margin-bottom: 0;
+  box-sizing: border-box; /* Includes padding in the element's width */
 }
 
+/* Adjustments for medium screens */
 @media (max-width: 768px) {
   .footer-col {
-    width: 50%; /* Adjust width on medium screens */
-    margin-bottom: 30px; /* Space between columns */
+    width: 50%; /* Adjust width for medium screens */
+    margin-bottom: 30px;
   }
 }
 
+/* Adjustments for small screens */
 @media (max-width: 574px) {
   .footer-col {
     width: 100%; /* Full width on small screens */
   }
 }
 
-.row {
-  display: flex;
-  flex-wrap: wrap; /* Allow rows to wrap on smaller screens */
-}
-
+/* Remove bullet points from lists */
 ul {
-  list-style: none; /* Remove bullet points from lists */
+  list-style: none;
 }
 
+/* Footer heading styles */
 .footer-col h4 {
-  font-size: 18px; /* Heading size in footer */
-  color: white; /* Heading text color */
-  text-transform: capitalize; /* Capitalize heading text */
-  font-weight: 500; /* Font weight for heading */
+  font-size: 18px;
+  color: white;
+  text-transform: capitalize;
+  font-weight: 500;
   margin-bottom: 35px; /* Space below heading */
-  font-size: 1.25rem !important;
 }
 
+/* Decorative underline for headings */
 .footer-col h4::before {
   content: '';
   position: absolute;
@@ -78,42 +88,41 @@ ul {
   bottom: -10px;
   background-color: white;
   height: 2px;
-  width: 50px; /* Decorative underline width */
+  width: 50px;
 }
 
+/* Link styles within footer columns */
 .footer-col ul li a {
-  font-size: 16px; /* Font size for links */
-  color: white; /* Link color */
-  text-transform: capitalize; /* Capitalize link text */
-  text-decoration: none; /* Remove underline from links */
-  font-weight: 300; /* Font weight for links */
-  display: block; /* Make links block to occupy full available width */
-  transition: all 0.3s ease; /* Smooth transition for hover effects */
-  font-size: 1.25rem !important;
+  font-size: 16px;
+  color: white;
+  text-transform: capitalize;
+  text-decoration: none;
+  font-weight: 300;
+  display: block;
+  transition: all 0.3s ease;
 }
 
+/* Space between list items */
 .footer-col ul li:not(:last-child) {
-  margin-bottom: 2px; /* Space between list items */
+  margin-bottom: 2px;
 }
 
+/* Hover effect for links */
 .footer-col ul li a:hover {
-  color: #ffffff; /* White color on hover */
-  padding-left: 8px; /* Move text slightly on hover */
+  color: #ffffff;
+  padding-left: 2px;
 }
 
+/* Social links styling */
 .footer-col .social-links a {
   display: inline-block;
-  height: 40px; /* Social icon height */
-  width: 40px; /* Social icon width */
-  background-color: rgba(255, 255, 255, 0.2); /* Translucent background */
+  height: 30px;
+  width: 30px;
+  background-color: rgba(255, 255, 255, 0.2);
   margin: 0 10px 10px 0;
   text-align: center;
-  line-height: 40px; /* Align icon in the center */
-  border-radius: 50%; /* Circular icons */
-  color: white; /* Icon color */
-  transition: all 0.5s ease; /* Smooth transition for hover effects */
-}
-
-.footer-col .social-links a:hover {
-  background-color: #2a76a5; /* Change background on hover */
+  line-height: 30px; /* Adjusted for icon alignment */
+  border-radius: 50%;
+  color: white;
+  transition: all 0.5s ease;
 }
