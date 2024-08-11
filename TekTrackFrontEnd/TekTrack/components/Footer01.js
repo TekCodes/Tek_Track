@@ -1,6 +1,5 @@
 import React from 'react-native';
 import '../assets/styles/footer.css';
-import logo from '../assets/images/logo-black.png'; // Ensure the logo image is in the correct path
 
 const Footer = () => {
   return (

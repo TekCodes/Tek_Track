@@ -1,13 +1,13 @@
 // Navbar01.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../assets/styles/navbar.css'; // Ensure styles are properly loaded
+import '../assets/styles/navbar.css'; 
 
 function Navbar01() {
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.removeItem('id_token');
-    // Handle logout logic
+    //To handle logout logic
   };
 
   return (

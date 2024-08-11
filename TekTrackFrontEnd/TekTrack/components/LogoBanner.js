@@ -1,5 +1,5 @@
 import React from 'react';
-import '../assets/styles/logoBanner.css'; // Ensure styles are properly loaded
+import '../assets/styles/logoBanner.css'; 
 
 function LogoBanner() {
   return (
