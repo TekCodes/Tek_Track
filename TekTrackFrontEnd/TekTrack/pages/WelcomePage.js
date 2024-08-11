@@ -10,7 +10,8 @@ const WelcomePage = () => {
     <View style={styles.container}>
       <LogoBanner />
       <Navbar01 /> 
-      <Text>APP CONTENT GOES HERE!</Text>
+      <Text>Welcome to TechTrack!<br></br>
+        Your Ultimate Companion for Managing Tech Opportunities.</Text>
       {/* Ensure Navbar01 is properly adapted or rendered conditionally */}
       <Footer01 />
     </View>

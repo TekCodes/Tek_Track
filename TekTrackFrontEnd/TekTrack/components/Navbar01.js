@@ -26,9 +26,9 @@ function Navbar01() {
           <Link to="/team">Forum</Link>
         </li>
       </ul>
-      <div className="nav-item logout-button">
+      {/* <div className="nav-item logout-button">
         <button onClick={handleLogout}>Logout</button>
-      </div>
+      </div> */}
     </nav>
   );
 }
