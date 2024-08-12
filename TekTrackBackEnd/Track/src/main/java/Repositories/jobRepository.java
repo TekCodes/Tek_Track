@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import Models.JobInfo;
 
 @Repository
-public interface JobRepository extends CrudRepository<Long, JobInfo> {
+public interface JobRepository extends CrudRepository<JobInfo, Long> {
 
 }
