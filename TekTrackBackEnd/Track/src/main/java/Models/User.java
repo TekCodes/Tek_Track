@@ -23,6 +23,14 @@ public class User {
 
     public User(){}
 
+    public User(String fName, String lName, String userName, String password){
+
+        this.fName = fName;
+        this.lName = lName;
+        this.userName = userName;
+        this.password = password;
+    }
+
     public User (long userId, String fName, String lName, String userName, String password){
         this.userId = userId;
         this.fName = fName;
@@ -31,6 +39,43 @@ public class User {
         this.password = password;
     }
 
-    
+    public long getUserId() {
+        return userId;
+    }
 
+    public void setUserId(long userId) {
+        this.userId = userId;
+    }
+
+    public String getfName() {
+        return fName;
+    }
+
+    public void setfName(String fName) {
+        this.fName = fName;
+    }
+
+    public String getlName() {
+        return lName;
+    }
+
+    public void setlName(String lName) {
+        this.lName = lName;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }
