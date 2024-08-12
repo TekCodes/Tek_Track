@@ -1,5 +1,7 @@
 package Models;
 
+import java.util.Objects;
+
 import org.springframework.data.annotation.Id;
 
 import jakarta.persistence.Entity;
@@ -24,7 +26,6 @@ public class User {
     public User(){}
 
     public User(String fName, String lName, String userName, String password){
-
         this.fName = fName;
         this.lName = lName;
         this.userName = userName;
@@ -77,5 +78,22 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Objects.equals(userId, user.userId) &&
+                Objects.equals(fName, user.fName) &&
+                Objects.equals(lName, user.lName) &&
+                Objects.equals(userName, user.userName) &&
+                Objects.equals(password, user.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userId, fName, lName, userName, password);
     }
 }
