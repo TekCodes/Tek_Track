@@ -1,8 +1,8 @@
 package Services;
 
 import org.springframework.stereotype.Service;
-
+//JobService
 @Service
-public class jobService {
+public class JobService {
 
 }
