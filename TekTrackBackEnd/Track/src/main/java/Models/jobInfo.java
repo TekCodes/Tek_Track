@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-// JobInfo Entity
+
 @Entity
 public class JobInfo {
 
