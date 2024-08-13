@@ -84,6 +84,14 @@ public class User {
         this.password = password; // Sets the user's password.
     }
 
+    public JobInfo getJobInfo(){ // Getter method to retrieve job information.
+        return jobInfo;
+    }
+
+    public void setJobInfo(JobInfo jobInfo){ // Setter method for job information.
+        this.jobInfo = jobInfo;
+    }
+
     @Override
     public boolean equals(Object o) { // Overridden method to compare User objects for equality.
         if (this == o) return true; // Checks if the compared object is the same as this object.
