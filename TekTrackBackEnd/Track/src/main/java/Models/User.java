@@ -23,21 +23,25 @@ public class User {
 
     private String password; // Defines the `password` field to store the user's password.
 
+    private JobInfo jobInfo;
+
     public User() {} // Default constructor, required by JPA.
 
-    public User(String fName, String lName, String userName, String password) { // Constructor to initialize a User object without `userId`.
+    public User(String fName, String lName, String userName, String password, JobInfo jobInfo) { // Constructor to initialize a User object without `userId`.
         this.fName = fName; // Sets the user's first name.
         this.lName = lName; // Sets the user's last name.
         this.userName = userName; // Sets the user's username.
         this.password = password; // Sets the user's password.
+        this.jobInfo = jobInfo; // Sets the user's job information.
     }
 
-    public User(long userId, String fName, String lName, String userName, String password) { // Constructor to initialize a User object with `userId`.
+    public User(long userId, String fName, String lName, String userName, String password,  JobInfo jobInfo) { // Constructor to initialize a User object with `userId`.
         this.userId = userId; // Sets the user's ID.
         this.fName = fName; // Sets the user's first name.
         this.lName = lName; // Sets the user's last name.
         this.userName = userName; // Sets the user's username.
         this.password = password; // Sets the user's password.
+        this.jobInfo = jobInfo; // Sets the user's job information.
     }
 
     public long getUserId() { // Getter method for `userId`.
@@ -78,6 +82,14 @@ public class User {
 
     public void setPassword(String password) { // Setter method for `password`.
         this.password = password; // Sets the user's password.
+    }
+
+    public JobInfo getJobInfo(){ // Getter method to retrieve job information.
+        return jobInfo;
+    }
+
+    public void setJobInfo(JobInfo jobInfo){ // Setter method for job information.
+        this.jobInfo = jobInfo;
     }
 
     @Override
