@@ -29,7 +29,8 @@ public class UserService {
             return null;
         }
 
-        
+        User user = optionalUser.get();
+        return user;
     }
 
 }
