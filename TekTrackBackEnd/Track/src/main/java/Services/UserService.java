@@ -16,7 +16,7 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
-    public Iterable<User> index() {
+    public Iterable<User> findAll() {
         return userRepository.findAll();
     }
 
