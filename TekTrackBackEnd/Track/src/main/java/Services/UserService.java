@@ -33,4 +33,18 @@ public class UserService {
         return user;
     }
 
+    public User create (User user) {
+        return userRepository.save(user);
+    }
+
+    public Boolean deleteById(Long id) {
+        userRepository.deleteById(id);
+        return true;
+    }
+
+    public Boolean deleteByUser(User user) {
+        userRepository.delete(user);
+        return true;
+    }
+
 }
