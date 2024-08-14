@@ -47,6 +47,8 @@ public class UserService {
         return true;
     }
 
-    
+    public User update(Long id, User newUserData){
+        return null;
+    }
 
 }
