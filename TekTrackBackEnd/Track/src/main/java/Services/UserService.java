@@ -1,12 +1,10 @@
-package Services;  // Specifies the package name where the service class is located
+package Services;
 
-import java.util.Optional;  // Imports the Optional class to handle optional values
-
-import org.springframework.beans.factory.annotation.Autowired;  // Imports the @Autowired annotation for dependency injection
-import org.springframework.stereotype.Service;  // Imports the @Service annotation to mark the class as a service component
-
-import Models.User;  // Imports the User model class
-import Repositories.UserRepository;  // Imports the UserRepository interface for database operations
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import Models.User;
+import Repositories.UserRepository;
 
 @Service  // Marks this class as a service component, so it can be detected and managed by Spring
 public class UserService {
