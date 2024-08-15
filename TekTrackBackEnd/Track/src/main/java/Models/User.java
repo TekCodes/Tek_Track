@@ -7,6 +7,7 @@ import org.springframework.data.annotation.Id; // Imports the `Id` annotation fo
 import jakarta.persistence.Entity; // Imports the `Entity` annotation to denote that this class is a JPA entity.
 import jakarta.persistence.GeneratedValue; // Imports the `GeneratedValue` annotation to specify how the primary key should be generated.
 import jakarta.persistence.GenerationType; // Imports the `GenerationType` enumeration to define the strategy for generating primary keys.
+import jakarta.persistence.ManyToOne;
 
 @Entity // Marks this class as a JPA entity that will be mapped to a database table.
 public class User {
