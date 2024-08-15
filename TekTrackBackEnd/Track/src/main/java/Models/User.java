@@ -22,7 +22,7 @@ public class User {
     private String userName; // Defines the `userName` field to store the user's username.
 
     private String password; // Defines the `password` field to store the user's password.
-
+    
     private JobInfo jobInfo;
 
     public User() {} // Default constructor, required by JPA.
