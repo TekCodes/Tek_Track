@@ -48,7 +48,17 @@ public class UserService {
     }
 
     public User update(Long id, User newUserData){
-        return null;
+        Optional<User> optionalUser = userRepository.findById(id);
+        //Guard clause
+        if(optionalUser.isEmpty()){
+            return null;
+        }
+        User originalUser = optionalUser.get();
+        originalUser.setfName(newUserData.getfName());
+        originalUser.setlName(newUserData.getlName());
+        originalUser.setUserName(newUserData.getUserName());
+        originalUser.setPassword(newUserData.getPassword());
+        return userRepository.save(originalUser);
     }
 
 }
