@@ -2,7 +2,9 @@ package Models; // Specifies the package where this class belongs.
 
 import java.util.Objects; // Imports the Objects class for utility methods (e.g., for `equals` and `hashCode`).
 
-import org.antlr.v4.runtime.misc.NotNull;
+
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.annotation.Id; // Imports the `Id` annotation for identifying primary key fields in a Spring Data entity.
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -11,8 +13,11 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity; // Imports the `Entity` annotation to denote that this class is a JPA entity.
 import jakarta.persistence.GeneratedValue; // Imports the `GeneratedValue` annotation to specify how the primary key should be generated.
 import jakarta.persistence.GenerationType; // Imports the `GenerationType` enumeration to define the strategy for generating primary keys.
+import jakarta.persistence.Table;
 
 @Entity // Marks this class as a JPA entity that will be mapped to a database table.
+@Table(name = "User")
+@Cache(usage = CacheConcurrencyStrategy.NONSTRICT_READ_WRITE)
 public class User {
 
     @Id // Specifies that the `userId` field is the primary key of the entity.
@@ -25,12 +30,13 @@ public class User {
     @Column(name = "last_name", length = 50)
     private String lName; // Defines the `lName` field to store the user's last name.
 
+    @Column(length = 254, unique = true)
     private String email;
 
+    @Column(length = 50, unique = true, nullable = false)
     private String userName; // Defines the `userName` field to store the user's username.
 
     @JsonIgnore
-    @NotNull
     @Column(name = "password_hash", length = 60, nullable = false)
     private String password; // Defines the `password` field to store the user's password.
 
