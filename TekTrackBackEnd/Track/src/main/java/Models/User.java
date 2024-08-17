@@ -11,8 +11,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity; // Imports the `Entity` annotation to denote that this class is a JPA entity.
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue; // Imports the `GeneratedValue` annotation to specify how the primary key should be generated.
 import jakarta.persistence.GenerationType; // Imports the `GenerationType` enumeration to define the strategy for generating primary keys.
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity // Marks this class as a JPA entity that will be mapped to a database table.
@@ -40,6 +42,7 @@ public class User {
     @Column(name = "password_hash", length = 60, nullable = false)
     private String password; // Defines the `password` field to store the user's password.
 
+    @ManyToOne(fetch = FetchType.LAZY)
     private JobInfo jobInfo;
 
     public User() {} // Default constructor, required by JPA.
