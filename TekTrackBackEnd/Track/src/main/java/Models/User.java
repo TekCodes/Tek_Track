@@ -1,5 +1,6 @@
 package Models; // Specifies the package where this class belongs. 
 
+import java.util.List;
 import java.util.Objects; // Imports the Objects class for utility methods (e.g., for `equals` and `hashCode`).
 
 
@@ -43,11 +44,11 @@ public class User {
     private String password; // Defines the `password` field to store the user's password.
 
     @ManyToOne(fetch = FetchType.LAZY)
-    private JobInfo jobInfo;
+    private List<JobInfo> jobInfo;
 
     public User() {} // Default constructor, required by JPA.
 
-    public User(String fName, String lName, String email, String userName, String password, JobInfo jobInfo) { // Constructor to initialize a User object without `userId`.
+    public User(String fName, String lName, String email, String userName, String password, List<JobInfo> jobInfo) { // Constructor to initialize a User object without `userId`.
         this.fName = fName; // Sets the user's first name.
         this.lName = lName; // Sets the user's last name.
         this.email = email;
@@ -56,7 +57,7 @@ public class User {
         this.jobInfo = jobInfo; // Sets the user's job information.
     }
 
-    public User(long userId, String fName, String lName, String email, String userName, String password,  JobInfo jobInfo) { // Constructor to initialize a User object with `userId`.
+    public User(long userId, String fName, String lName, String email, String userName, String password,  List<JobInfo> jobInfo) { // Constructor to initialize a User object with `userId`.
         this.userId = userId; // Sets the user's ID.
         this.fName = fName; // Sets the user's first name.
         this.lName = lName; // Sets the user's last name.
@@ -114,11 +115,11 @@ public class User {
         this.password = password; // Sets the user's password.
     }
 
-    public JobInfo getJobInfo(){ // Getter method to retrieve job information.
+    public List<JobInfo> getJobInfo(){ // Getter method to retrieve job information.
         return jobInfo;
     }
 
-    public void setJobInfo(JobInfo jobInfo){ // Setter method for job information.
+    public void setJobInfo(List<JobInfo> jobInfo){ // Setter method for job information.
         this.jobInfo = jobInfo;
     }
 
