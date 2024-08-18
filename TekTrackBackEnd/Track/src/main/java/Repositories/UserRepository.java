@@ -8,4 +8,6 @@ import Models.User;
 @Repository
 public interface UserRepository extends CrudRepository<User, Long>{
 
+    User findByUsername(String username);
+
 }
