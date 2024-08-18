@@ -46,7 +46,7 @@ public class UserService {
     }
 
     // Method to delete a user by the user object
-    public Boolean deleteByUser(User user) {
+    public Boolean deleteByUserName(User user) {
         userRepository.delete(user);  // Deletes the given user object from the repository
         return true;  // Returns true to indicate successful deletion
     }
