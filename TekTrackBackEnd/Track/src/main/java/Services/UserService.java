@@ -45,10 +45,24 @@ public class UserService {
         return true;  // Returns true to indicate successful deletion
     }
 
-    // Method to delete a user by the user object
-    public Boolean deleteByUser(User user) {
-        userRepository.delete(user);  // Deletes the given user object from the repository
-        return true;  // Returns true to indicate successful deletion
+    // // Method to delete a user by the user object
+    // public Boolean deleteByUserName(User user) {
+    //     userRepository.delete(user);  // Deletes the given user object from the repository
+    //     return true;  // Returns true to indicate successful deletion
+    // }
+
+    public Boolean deleteByUserName(String username) {
+        // Find the user by username
+        User user = userRepository.findByUsername(username);
+        
+        // Check if the user exists
+        if (user != null) {
+            // Deletes the user object from the repository
+            userRepository.delete(user);
+            return true;  // Return true to indicate successful deletion
+        }
+        
+        return false;  // Return false if the user was not found
     }
 
     // Method to update an existing user with new data
