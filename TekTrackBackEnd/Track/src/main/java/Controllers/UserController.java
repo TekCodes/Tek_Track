@@ -11,6 +11,7 @@ import Services.UserService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -40,6 +41,11 @@ public class UserController {
         return new ResponseEntity<>(userService.create(user), HttpStatus.CREATED);
     }
     
+    @PutMapping("/updateUser/{id}")
+    public ResponseEntity<User> update(@PathVariable Long id, @RequestBody User user) {
+        return new ResponseEntity<>(userService.update(id, user), HttpStatus.OK);
+    }
 
+    
 
 }
