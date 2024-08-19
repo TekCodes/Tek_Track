@@ -48,10 +48,7 @@ public class JobService {
         return true;
     }
 
-    public Boolean deleteJob(JobInfo jobinfo) {
-        jobRepository.delete(jobinfo);
-        return true;
-    }
-
     
+
+
 }
