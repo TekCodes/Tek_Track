@@ -6,10 +6,12 @@ import jakarta.persistence.*;
 @Entity
 public class Internship {
 
+    //Unique table ID
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long internshipId;
 
+    //Table columns
     @Column(nullable = false, length = 30)
     private String company;
     
@@ -51,5 +53,15 @@ public class Internship {
 
     @Column(length = 100)
     private String jobLink;
+
+    //Constructors
+    public Internship() {} //Default constructor, required by JPA
+
+    public Internship(String company, String jobTitle) {
+        this.company = company;
+        this.jobTitle = jobTitle;
+    }
+
+    //Getters and Setters
 
 }
