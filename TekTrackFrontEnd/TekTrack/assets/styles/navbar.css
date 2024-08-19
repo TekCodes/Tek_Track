@@ -7,7 +7,7 @@ body {
 
 * {
   margin: 0;
-  padding: 0;
+  padding: 5px;
   box-sizing: border-box;
 }
 
@@ -25,16 +25,6 @@ ul {
   list-style: none;
 }
 
-.navbar {
-  /* display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 20px; 
-  box-shadow: 0 4px 5px rgba(0, 0, 0, 0.1);
-  background: linear-gradient(to right, #2a76a5 0%, #89b4d0 100%);
-  position: relative;
-  z-index: 1000;  */
-}
 .navbar a {
   position: relative;
   color: black;
@@ -42,14 +32,6 @@ ul {
 }
 
 .navbar a::after {
-  /* content: '';
-  position: absolute;
-  width: 0;
-  height: 2px;
-  display: block;
-  margin-top: 5px;
-  background: #000;
-  transition: width 0.3s; */
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -80,15 +62,7 @@ ul {
 
 .nav-item a,
 .logout-button button {
-  /* color: white;
-  background: transparent;
-  border: none;
-  text-decoration: none;
-  font-size: 20px;
-  letter-spacing: 0.5px;
-  padding: 10px 15px; /* Added padding for better clickability */
-
-  color: white; /* Changed to white for better visibility */
+  color: black; 
   background: transparent;
   border: none;
   text-decoration: none;

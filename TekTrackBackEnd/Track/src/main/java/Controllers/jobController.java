@@ -13,5 +13,4 @@ public class JobController {
         this.jobService = jobService;
     }
 
-
 }

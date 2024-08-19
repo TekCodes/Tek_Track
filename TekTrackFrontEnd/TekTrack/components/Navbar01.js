@@ -1,34 +1,34 @@
 // Navbar01.js
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../assets/styles/navbar.css'; // Ensure styles are properly loaded
+import '../assets/styles/navbar.css'; 
 
 function Navbar01() {
   const handleLogout = (e) => {
     e.preventDefault();
     localStorage.removeItem('id_token');
-    // Handle logout logic
+    //To handle logout logic
   };
 
   return (
     <nav className="navbar">
       <ul className="nav-list">
         <li className="nav-item">
-          <Link to="/">Home</Link>
+          <Link to="/">Jobs</Link>
         </li>
         <li className="nav-item">
-          <Link to="/accounts">Accounts</Link>
+          <Link to="/accounts">Interships</Link>
         </li>
         <li className="nav-item">
-          <Link to="/tracker">Tracker</Link>
+          <Link to="/tracker">Resume</Link>
         </li>
         <li className="nav-item">
-          <Link to="/team">Meet The Team</Link>
+          <Link to="/team">Forum</Link>
         </li>
       </ul>
-      <div className="nav-item logout-button">
+      {/* <div className="nav-item logout-button">
         <button onClick={handleLogout}>Logout</button>
-      </div>
+      </div> */}
     </nav>
   );
 }
