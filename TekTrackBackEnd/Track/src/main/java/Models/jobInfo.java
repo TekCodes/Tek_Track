@@ -33,6 +33,9 @@ public class JobInfo {
     @Column(name = "job_link", length = 254)
     private String jobUrlLink;
 
+    @Column(name = "job_description", length = 254)
+    private String jobDesc;
+
     @Column(name = "date_applied", length = 50, nullable = false)
     private Date dateApplied;
     
@@ -61,10 +64,11 @@ public class JobInfo {
     public JobInfo() {
     }
 
-    public JobInfo(String company, String jobTitle, String jobUrlLink, Date dateApplied, String contactName, String contactEmail, String contactNumber, String referral, Boolean remote, Boolean gotResponse, User user) {
+    public JobInfo(String company, String jobTitle, String jobUrlLink, String jobDesc, Date dateApplied, String contactName, String contactEmail, String contactNumber, String referral, Boolean remote, Boolean gotResponse, User user) {
         this.company = company;
         this.jobTitle = jobTitle;
         this.jobUrlLink = jobUrlLink;
+        this.jobDesc = jobDesc;
         this.dateApplied = dateApplied;
         this.contactName = contactName;
         this.contactEmail = contactEmail;
@@ -75,11 +79,12 @@ public class JobInfo {
         this.user = user;
     }
 
-    public JobInfo(long jobInfoId, String company, String jobTitle, String jobUrlLink, Date dateApplied, String contactName, String contactEmail, String contactNumber, String referral, Boolean remote, Boolean gotResponse, User user) {
+    public JobInfo(long jobInfoId, String company, String jobTitle, String jobUrlLink, String jobDesc, Date dateApplied, String contactName, String contactEmail, String contactNumber, String referral, Boolean remote, Boolean gotResponse, User user) {
         this.jobInfoId = jobInfoId;
         this.company = company;
         this.jobTitle = jobTitle;
         this.jobUrlLink = jobUrlLink;
+        this.jobDesc = jobDesc;
         this.dateApplied = dateApplied;
         this.contactName = contactName;
         this.contactEmail = contactEmail;
@@ -120,6 +125,14 @@ public class JobInfo {
 
     public void setJobUrlLink(String jobUrlLink) {
         this.jobUrlLink = jobUrlLink;
+    }
+
+    public String getJobDesc() {
+        return jobDesc;
+    }
+
+    public void setJobDesc(String jobDesc) {
+        this.jobDesc = jobDesc;
     }
 
     public Date getDateApplied() {
