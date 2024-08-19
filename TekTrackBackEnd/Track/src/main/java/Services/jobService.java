@@ -39,5 +39,9 @@ public class JobService {
         return jobInfo;
     }
 
+    public JobInfo create(JobInfo jobInfo) {
+        return jobRepository.save(jobInfo);
+    }
+
     
 }
