@@ -17,10 +17,10 @@ public class Internship {
     private Long internshipId;
 
     //Table columns
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 100)
     private String company;
     
-    @Column(nullable = false, length = 30)
+    @Column(nullable = false, length = 100)
     private String jobTitle;
     
     @Column(name = "date_applied")
