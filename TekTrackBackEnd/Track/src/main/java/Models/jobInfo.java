@@ -30,7 +30,7 @@ public class JobInfo {
 
     @Column(name = "date_applied", length = 50, nullable = false)
     private Date dateApplied;
-    
+
     @Column(name = "contact_name", length = 100)
     private String contactName;
 
@@ -196,3 +196,4 @@ public class JobInfo {
         return Objects.hash(jobInfoId, company, jobTitle, jobUrlLink, dateApplied, contactName, contactEmail, contactNumber, referral, remote, gotResponse, user); // Returns a hash code
     }
 }
+
