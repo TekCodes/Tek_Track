@@ -1,5 +1,7 @@
 package Models;
 import java.sql.Date;
+
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.annotation.Id;
 import jakarta.persistence.*;
 
