@@ -1,5 +1,5 @@
 package Models;
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.Objects;
 
 import org.hibernate.annotations.Cache;
@@ -25,16 +25,16 @@ public class Internship {
     private String jobTitle;
     
     @Column(name = "date_applied")
-    private Date dateApplied;
+    private LocalDate dateApplied;
     
     @Column(nullable = false)
     private String duration; //(Dropbox season)
 
     @Column()
-    private String assesment;
+    private String assessment;
 
     @Column()
-    private Boolean assesment_completed;
+    private Boolean assessment_completed;
 
     @Column()
     private String contactPersonName;
@@ -63,13 +63,13 @@ public class Internship {
     //Constructors
     public Internship() {} //Default constructor, required by JPA
 
-    public Internship(String company, String jobTitle, Date dateApplied, String duration, String assesment, Boolean assesment_completed, String contactPersonName, String contactPersonEmail, String contactPersonPhone, String jobDescription, String status, Boolean remote, Boolean response, String jobLink) {
+    public Internship(String company, String jobTitle, LocalDate dateApplied, String duration, String assessment, Boolean assessment_completed, String contactPersonName, String contactPersonEmail, String contactPersonPhone, String jobDescription, String status, Boolean remote, Boolean response, String jobLink) {
         this.company = company;
         this.jobTitle = jobTitle;
         this.dateApplied = dateApplied;
         this.duration = duration;
-        this.assesment = assesment;
-        this.assesment_completed = assesment_completed;
+        this.assessment = assessment;
+        this.assessment_completed = assessment_completed;
         this.contactPersonName = contactPersonName;
         this.contactPersonEmail = contactPersonEmail;
         this.contactPersonPhone = contactPersonPhone;
@@ -105,11 +105,11 @@ public class Internship {
         this.jobTitle = jobTitle;
     }
 
-    public Date getDateApplied() {
+    public LocalDate getDateApplied() {
         return dateApplied;
     }
 
-    public void setDateApplied(Date dateApplied) {
+    public void setDateApplied(LocalDate dateApplied) {
         this.dateApplied = dateApplied;
     }
 
@@ -122,7 +122,7 @@ public class Internship {
     }
 
     public String getAssessment() {
-        return assesment;
+        return assessment;
     }
 
     public void setAssessment(String assessment) {
@@ -130,11 +130,11 @@ public class Internship {
     }
 
     public Boolean getAssessmentCompleted() {
-        return assesment_completed;
+        return assessment_completed;
     }
 
     public void setAssessmentCompleted(Boolean assessmentCompleted) {
-        this.assesment_completed = assessmentCompleted;
+        this.assessment_completed = assessmentCompleted;
     }
 
     public String getContactPersonName() {
