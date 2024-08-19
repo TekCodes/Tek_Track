@@ -13,4 +13,10 @@ public class JobInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long jobInfoId;
 
+    private String company;
+
+    private String jobTitle;
+
+    private String 
+
 }
