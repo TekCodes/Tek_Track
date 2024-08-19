@@ -13,5 +13,5 @@ public class JobService {
         this.jobRepository = jobRepository;
     }
 
-    
+
 }
