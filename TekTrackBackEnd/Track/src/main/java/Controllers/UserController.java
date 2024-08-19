@@ -43,25 +43,25 @@ public class UserController {
         return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
     }
 
-    @PostMapping("/newUser")  // Handles POST requests to "/newUser".
+    @PostMapping("/new_user")  // Handles POST requests to "/newUser".
     public ResponseEntity<User> create(@RequestBody User user) {
         // Calls the service to create a new user and returns the created user with an HTTP 201 Created status.
         return new ResponseEntity<>(userService.create(user), HttpStatus.CREATED);
     }
     
-    @PutMapping("/updateUser/{id}")  // Handles PUT requests to "/updateUser/{id}".
+    @PutMapping("/update_user/{id}")  // Handles PUT requests to "/updateUser/{id}".
     public ResponseEntity<User> update(@PathVariable Long id, @RequestBody User user) {
         // Calls the service to update an existing user by ID and returns the updated user with an HTTP 200 OK status.
         return new ResponseEntity<>(userService.update(id, user), HttpStatus.OK);
     }
 
-    @DeleteMapping("/deleteUser/{id}")  // Handles DELETE requests to "/deleteUser/{id}".
+    @DeleteMapping("/delete_user/{id}")  // Handles DELETE requests to "/deleteUser/{id}".
     public ResponseEntity<Boolean> delete(@PathVariable Long id) {
         // Calls the service to delete a user by ID and returns true if successful with an HTTP 200 OK status.
         return new ResponseEntity<>(userService.deleteById(id), HttpStatus.OK);
     }
 
-    @DeleteMapping("/deleteUser/{userName}")  // Handles DELETE requests to "/deleteUser/{userName}".
+    @DeleteMapping("/delete_user_2/{userName}")  // Handles DELETE requests to "/deleteUser/{userName}".
     public ResponseEntity<Boolean> deleteByUserName(@PathVariable String userName) {
         // Calls the service to delete a user by username and returns true if successful with an HTTP 200 OK status.
         return new ResponseEntity<>(userService.deleteByUserName(userName), HttpStatus.OK);
