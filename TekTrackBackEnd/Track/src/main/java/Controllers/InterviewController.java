@@ -29,14 +29,18 @@ public class InterviewController {
         this.interviewService = interviewService;
     }
 
-    @GetMapping("/interview")  
+    @GetMapping("/allInterview")  
     public ResponseEntity<List<Interview>> getAllInterview() { 
         return new ResponseEntity<>(interviewService.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/interview")  
+    @GetMapping("/{id}")  
     public ResponseEntity<Interview> getInterview(@PathVariable Long id) {
-        return new ResponseEntity<>(interviewService.findById(id), HttpStatus.OK);
+        Interview interview = interviewService.findById(id);
+        if ( interview == null){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(interview, HttpStatus.OK)
     }
 
     @PostMapping("/newInterview")  
@@ -53,11 +57,5 @@ public class InterviewController {
     public ResponseEntity<Boolean> delete(@PathVariable Long id) {
         return new ResponseEntity<>(interviewService.deleteById(id), HttpStatus.OK);
     }
-
-    @DeleteMapping("/deleteInterview/{id}")  
-    public ResponseEntity<Boolean> deleteById(@PathVariable Long id) {
-        return new ResponseEntity<>(interviewService.deleteById(id), HttpStatus.OK);
-    }
-
 
 }

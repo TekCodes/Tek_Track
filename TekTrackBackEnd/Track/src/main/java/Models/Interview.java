@@ -1,6 +1,7 @@
 package Models;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -14,14 +15,14 @@ public class Interview {
 
     //Unique table ID
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(name = "interview_id", strategy = GenerationType.IDENTITY)
     private Long interviewId;
 
     //Table columns
-    @Column(nullable = false, length = 100)
-    private Date interviewDate;
+    @Column(name = "interview_date", nullable = false)
+    private LocalDate interviewDate;
   
-    @Column(nullable = false, length = 50)
+    @Column(name = "interview_stage", nullable = false, length = 50)
     private String stage; //Possible ENUM (1st, 2nd, Final)
     
     @ Column(name = "ty_note")
@@ -69,11 +70,11 @@ public class Interview {
         this.interviewId = interviewId;
     }
 
-    public Date getInterviewDate() {
+    public LocalDate getInterviewDate() {
         return interviewDate;
     }
 
-    public void setInterviewDate(Date interviewDate) {
+    public void setInterviewDate(LocalDate interviewDate) {
         this.interviewDate = interviewDate;
     }
 
