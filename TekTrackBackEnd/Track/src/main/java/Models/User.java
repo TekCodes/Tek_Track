@@ -1,15 +1,10 @@
 package Models; 
 
-import java.util.List;
-import java.util.Objects;
-
-
+import java.util.*;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.annotation.Id; 
-
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import jakarta.persistence.*;
 
 @Entity // Marks this class as a JPA entity that will be mapped to a database table.

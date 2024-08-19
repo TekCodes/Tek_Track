@@ -1,21 +1,10 @@
 package Controllers;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
+import org.springframework.http.*;
+import org.springframework.web.bind.annotation.*;
 import Models.Interview;
-import Models.User;
 import Services.InterviewService;
 
 @RestController
@@ -40,7 +29,7 @@ public class InterviewController {
         if ( interview == null){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(interview, HttpStatus.OK)
+        return new ResponseEntity<>(interview, HttpStatus.OK);
     }
 
     @PostMapping("/newInterview")  
