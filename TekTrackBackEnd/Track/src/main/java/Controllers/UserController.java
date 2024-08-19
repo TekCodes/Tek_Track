@@ -1,5 +1,7 @@
 package Controllers;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,7 +32,7 @@ public class UserController {
     }
 
     @GetMapping("/users")  // Handles GET requests to "/users".
-    public ResponseEntity<Iterable<User>> getAllUsers() {
+    public ResponseEntity<List<User>> getAllUsers() { // Returns a List instead of an Iterable now due to change in the Service findAll() method
         // Calls the service to get all users and returns them with an HTTP 200 OK status.
         return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
     }
