@@ -25,7 +25,7 @@ public class Internship {
     private String duration; //(Dropbox season)
 
     @Column()
-    private String Assesment;
+    private String assesment;
 
     @Column()
     private Boolean assesment_completed;
@@ -43,7 +43,7 @@ public class Internship {
     private String jobDescription;
 
     @Column()
-    private String Status;
+    private String status;
 
     @Column()
     private Boolean remote;
@@ -57,9 +57,21 @@ public class Internship {
     //Constructors
     public Internship() {} //Default constructor, required by JPA
 
-    public Internship(String company, String jobTitle) {
+    public Internship(String company, String jobTitle, Date dateApplied, String duration, String assesment, Boolean assesment_completed, String contactPersonName, String contactPersonEmail, String contactPersonPhone, String jobDescription, String status, Boolean remote, Boolean response, String jobLink) {
         this.company = company;
         this.jobTitle = jobTitle;
+        this.dateApplied = dateApplied;
+        this.duration = duration;
+        this.assesment = assesment;
+        this.assesment_completed = assesment_completed;
+        this.contactPersonName = contactPersonName;
+        this.contactPersonEmail = contactPersonEmail;
+        this.contactPersonPhone = contactPersonPhone;
+        this.jobDescription = jobDescription;
+        this.status = status;
+        this.remote = remote;
+        this.response = response;
+        
     }
 
     //Getters and Setters
