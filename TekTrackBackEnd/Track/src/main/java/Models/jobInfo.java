@@ -35,6 +35,36 @@ public class JobInfo {
 
     private String jobUrlLink;
 
-    
 
+    public JobInfo() {
+    }
+
+    public JobInfo(String company, String jobTitle, Date dateApplied, String contactName, String contactEmail, String contactNumber, String referral, Boolean remote, Boolean gotResponse, String jobUrlLink) {
+        this.company = company;
+        this.jobTitle = jobTitle;
+        this.dateApplied = dateApplied;
+        this.contactName = contactName;
+        this.contactEmail = contactEmail;
+        this.contactNumber = contactNumber;
+        this.referral = referral;
+        this.remote = remote;
+        this.gotResponse = gotResponse;
+        this.jobUrlLink = jobUrlLink;
+    }
+
+    public JobInfo(long jobInfoId, String company, String jobTitle, Date dateApplied, String contactName, String contactEmail, String contactNumber, String referral, Boolean remote, Boolean gotResponse, String jobUrlLink) {
+        this.jobInfoId = jobInfoId;
+        this.company = company;
+        this.jobTitle = jobTitle;
+        this.dateApplied = dateApplied;
+        this.contactName = contactName;
+        this.contactEmail = contactEmail;
+        this.contactNumber = contactNumber;
+        this.referral = referral;
+        this.remote = remote;
+        this.gotResponse = gotResponse;
+        this.jobUrlLink = jobUrlLink;
+    }
+
+    
 }
