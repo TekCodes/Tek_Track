@@ -9,8 +9,10 @@ import org.springframework.data.annotation.Id;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -50,6 +52,7 @@ public class JobInfo {
 
     private Boolean gotResponse;
 
+    @OneToMany(fetch = FetchType.LAZY)
     private User user;
 
 
