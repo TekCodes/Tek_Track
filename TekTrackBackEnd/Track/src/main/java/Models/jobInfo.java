@@ -36,16 +36,16 @@ public class JobInfo {
     //Got response
     //JobLink
 
-    @Column(name = "company_name", length = 100)
+    @Column(name = "company_name", length = 100, nullable = false)
     private String company;
 
-    @Column(name = "job_title", length = 100)
+    @Column(name = "job_title", length = 100, nullable = false)
     private String jobTitle;
 
     @Column(name = "job_link", length = 254)
     private String jobUrlLink;
 
-    @Column(name = "date_applied", length = 50)
+    @Column(name = "date_applied", length = 50, nullable = false)
     private Date dateApplied;
     
     @Column(name = "contact_name", length = 100)
@@ -60,8 +60,10 @@ public class JobInfo {
     @Column(name = "referral_name", length = 100)
     private String referral;
 
+    @Column(name = "remote")
     private Boolean remote;
 
+    @Column(name = "got_response")
     private Boolean gotResponse;
 
     @OneToMany(fetch = FetchType.LAZY)

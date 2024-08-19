@@ -4,6 +4,7 @@ import Repositories.JobRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,6 +26,21 @@ public class JobService {
         List<JobInfo> jobInfoList = new ArrayList<>();
         jobInfoIterable.forEach(jobInfoList::add);
         return jobInfoList; 
+    }
+
+    public JobInfo findById(Long id) {
+        Optional<JobInfo> optionalJobInfo = jobRepository.findById(id);
+
+        if(optionalJobInfo.isEmpty()) {
+            return null;
+        }
+
+        JobInfo jobInfo = optionalJobInfo.get();
+        return jobInfo;
+    }
+
+    public JobInfo create(JobInfo jobInfo) {
+        return jobRepository.save(jobInfo);
     }
 
     
