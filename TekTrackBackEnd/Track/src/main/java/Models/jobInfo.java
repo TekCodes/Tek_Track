@@ -5,6 +5,7 @@ import java.util.Objects;
 
 import org.springframework.data.annotation.Id;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -16,20 +17,28 @@ public class JobInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long jobInfoId;
 
+    @Column(name = "company_name", length = 50)
     private String company;
 
+    @Column(name = "job_title", length = 50)
     private String jobTitle;
 
+    @Column(name = "job_link", length = 100)
     private String jobUrlLink;
 
+    @Column(name = "date_applied", length = 50)
     private Date dateApplied;
     
+    @Column(name = "contact_name", length = 50)
     private String contactName;
 
+    @Column(name = "contact_email", length = 50)
     private String contactEmail;
 
+    @Column(name = "contact_number", length = 50)
     private String contactNumber;
 
+    @Column(name = "referral_name", length = 50)
     private String referral;
 
     private Boolean remote;
