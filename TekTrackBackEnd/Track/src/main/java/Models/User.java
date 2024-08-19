@@ -1,6 +1,5 @@
 package Models; 
 
-
 import java.util.List;
 import java.util.Objects;
 import org.hibernate.annotations.Cache;
