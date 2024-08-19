@@ -1,14 +1,8 @@
 package Services;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
+import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import Models.Internship;
-import Models.Internship;
-import Repositories.InternshipRepository;
 import Repositories.InternshipRepository;
 
 public class InternshipService {
