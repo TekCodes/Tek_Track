@@ -50,11 +50,13 @@ public class JobInfo {
 
     private Boolean gotResponse;
 
+    private User user;
+
 
     public JobInfo() {
     }
 
-    public JobInfo(String company, String jobTitle, String jobUrlLink, Date dateApplied, String contactName, String contactEmail, String contactNumber, String referral, Boolean remote, Boolean gotResponse) {
+    public JobInfo(String company, String jobTitle, String jobUrlLink, Date dateApplied, String contactName, String contactEmail, String contactNumber, String referral, Boolean remote, Boolean gotResponse, User user) {
         this.company = company;
         this.jobTitle = jobTitle;
         this.jobUrlLink = jobUrlLink;
@@ -65,9 +67,10 @@ public class JobInfo {
         this.referral = referral;
         this.remote = remote;
         this.gotResponse = gotResponse;
+        this.user = user;
     }
 
-    public JobInfo(long jobInfoId, String company, String jobTitle, String jobUrlLink, Date dateApplied, String contactName, String contactEmail, String contactNumber, String referral, Boolean remote, Boolean gotResponse) {
+    public JobInfo(long jobInfoId, String company, String jobTitle, String jobUrlLink, Date dateApplied, String contactName, String contactEmail, String contactNumber, String referral, Boolean remote, Boolean gotResponse, User user) {
         this.jobInfoId = jobInfoId;
         this.company = company;
         this.jobTitle = jobTitle;
@@ -79,6 +82,7 @@ public class JobInfo {
         this.referral = referral;
         this.remote = remote;
         this.gotResponse = gotResponse;
+        this.user = user;
     }
 
     public long getJobInfoId() {
@@ -169,8 +173,16 @@ public class JobInfo {
         this.gotResponse = gotResponse;
     }
 
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
     @Override
     public int hashCode() { // Overridden method to generate a hash code for the User object.
-        return Objects.hash(jobInfoId, company, jobTitle, jobUrlLink, dateApplied, contactName, contactEmail, contactNumber, referral, remote, gotResponse); // Returns a hash code
+        return Objects.hash(jobInfoId, company, jobTitle, jobUrlLink, dateApplied, contactName, contactEmail, contactNumber, referral, remote, gotResponse, user); // Returns a hash code
     }
 }
