@@ -48,7 +48,28 @@ public class JobService {
         return true;
     }
 
+    public JobInfo update(Long id, JobInfo newJobInfo) {
+        Optional<JobInfo> optionalJobInfo = jobRepository.findById(id);
+
+        if(optionalJobInfo.isEmpty()) {
+            return null;
+        }
+
+        JobInfo originalJobInfo = optionalJobInfo.get();
+        originalJobInfo.setCompany(newJobInfo.getCompany());
+        originalJobInfo.setJobTitle(newJobInfo.getJobTitle());
+        originalJobInfo.setJobUrlLink(newJobInfo.getJobUrlLink());
+        originalJobInfo.setJobDesc(newJobInfo.getJobDesc());
+        originalJobInfo.setDateApplied(newJobInfo.getDateApplied());
+        originalJobInfo.setContactName(newJobInfo.getContactName());
+        originalJobInfo.setContactEmail(newJobInfo.getContactEmail());
+        originalJobInfo.setContactNumber(newJobInfo.getContactNumber());
+        originalJobInfo.setReferral(newJobInfo.getReferral());
+        originalJobInfo.setRemote(newJobInfo.getRemote());
+        originalJobInfo.setGotResponse(newJobInfo.getGotResponse());
+
+        return jobRepository.save(originalJobInfo);
+    }
+
     
-
-
 }
