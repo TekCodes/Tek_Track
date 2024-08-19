@@ -7,6 +7,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -45,6 +46,11 @@ public class JobController {
     @PutMapping("/update_job")
     public ResponseEntity<JobInfo> update(@PathVariable Long id, @RequestBody JobInfo jobInfo) {
         return new ResponseEntity<>(jobService.update(id, jobInfo), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/delete_job")
+    public ResponseEntity<Boolean> deleteById(@PathVariable Long id) {
+        return new ResponseEntity<>(jobService.deleteById(id), HttpStatus.OK);
     }
 
     
