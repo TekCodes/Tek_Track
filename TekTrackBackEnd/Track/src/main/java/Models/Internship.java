@@ -1,6 +1,7 @@
 package Models;
 import java.sql.Date;
 
+import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.annotation.Id;
 import jakarta.persistence.*;
@@ -8,6 +9,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "Internship")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE) //Stores in temp memory before sending to DB to avoid concurrecy(uses softlocks)
 public class Internship {
     //Unique table ID
     @Id
