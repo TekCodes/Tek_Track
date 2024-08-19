@@ -3,14 +3,19 @@ package Models;
 import java.util.Date;
 import java.util.Objects;
 
+import org.hibernate.annotations.Cache;
+import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.annotation.Id;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "Job_Information")
+@Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
 public class JobInfo {
 
     @Id
