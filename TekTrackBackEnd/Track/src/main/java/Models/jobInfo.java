@@ -12,5 +12,17 @@ public class JobInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long jobInfoId;
+    //Company
+    //Job_Title
+    //Date Applied
+    //ContactPersonName
+    //Contact Person email
+    //Contact Person Phone Number
+    //Referral
+    //Job Description
+    //Status
+    //Remote
+    //Got response
+    //JobLink
 
 }

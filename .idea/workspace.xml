@@ -4,7 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="65a164ab-ef61-4723-bc04-c4062858225d" name="Changes" comment="" />
+    <list default="true" id="65a164ab-ef61-4723-bc04-c4062858225d" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/TekTrackBackEnd/Track/target/classes/Controllers/jobController.class" beforeDir="false" afterPath="$PROJECT_DIR$/TekTrackBackEnd/Track/target/classes/Controllers/jobController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TekTrackBackEnd/Track/target/classes/Models/jobInfo.class" beforeDir="false" afterPath="$PROJECT_DIR$/TekTrackBackEnd/Track/target/classes/Models/jobInfo.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TekTrackBackEnd/Track/target/classes/Repositories/jobRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/TekTrackBackEnd/Track/target/classes/Repositories/jobRepository.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TekTrackBackEnd/Track/target/classes/Services/jobService.class" beforeDir="false" afterPath="$PROJECT_DIR$/TekTrackBackEnd/Track/target/classes/Services/jobService.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -24,26 +29,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/Users/matthew123003/VSCodeProjects/TekTrack&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Downloaded.Files.Path.Enabled": "false",
+    "Repository.Attach.Annotations": "false",
+    "Repository.Attach.JavaDocs": "false",
+    "Repository.Attach.Sources": "false",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Lenovo/Documents/TTFInal/TekTrack"
   }
-}</component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-322ed176" />
-      </set>
-    </attachedChunks>
-  </component>
+}]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
