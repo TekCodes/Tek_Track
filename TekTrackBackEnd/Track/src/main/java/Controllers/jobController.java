@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -39,6 +40,11 @@ public class JobController {
     @PostMapping("/new_job")
     public ResponseEntity<JobInfo> create(@RequestBody JobInfo jobInfo) {
         return new ResponseEntity<>(jobService.create(jobInfo), HttpStatus.CREATED);
+    }
+
+    @PutMapping("/update_job")
+    public ResponseEntity<JobInfo> update(@PathVariable Long id, @RequestBody JobInfo jobInfo) {
+        return new ResponseEntity<>(jobService.update(id, jobInfo), HttpStatus.OK);
     }
 
     
