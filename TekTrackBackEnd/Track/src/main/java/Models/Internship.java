@@ -1,5 +1,6 @@
 package Models;
 import java.sql.Date;
+import java.util.Objects;
 
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
@@ -199,4 +200,5 @@ public class Internship {
     public void setJobLink(String jobLink) {
         this.jobLink = jobLink;
     }
+
 }
