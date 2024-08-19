@@ -24,10 +24,10 @@ public class JobInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long jobInfoId;
 
-    @Column(name = "company_name", length = 100)
+    @Column(nullable = false, name = "company_name", length = 100)
     private String company;
 
-    @Column(name = "job_title", length = 100)
+    @Column(nullable = false, name = "job_title", length = 100)
     private String jobTitle;
 
     @Column(name = "job_link", length = 254)
