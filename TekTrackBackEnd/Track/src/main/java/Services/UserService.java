@@ -1,5 +1,7 @@
 package Services;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,8 +20,11 @@ public class UserService {
     }
 
     // Method to retrieve all users from the repository
-    public Iterable<User> findAll() {
-        return userRepository.findAll();  // Calls the findAll method on the repository to get all users
+    public List<User> findAll() { // Method adjusted to return a list of all users
+        Iterable<User> usersIterable = userRepository.findAll();
+        List<User> usersList = new ArrayList<>();
+        usersIterable.forEach(usersList::add);
+        return usersList; 
     }
 
     // Method to find a user by their ID
