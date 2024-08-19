@@ -24,16 +24,16 @@ public class JobInfo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long jobInfoId;
 
-    @Column(nullable = false, name = "company_name", length = 100)
+    @Column(name = "company_name", length = 100, nullable = false)
     private String company;
 
-    @Column(nullable = false, name = "job_title", length = 100)
+    @Column(name = "job_title", length = 100, nullable = false)
     private String jobTitle;
 
     @Column(name = "job_link", length = 254)
     private String jobUrlLink;
 
-    @Column(name = "date_applied", length = 50)
+    @Column(name = "date_applied", length = 50, nullable = false)
     private Date dateApplied;
     
     @Column(name = "contact_name", length = 100)
