@@ -3,9 +3,10 @@ import java.sql.Date;
 import org.springframework.data.annotation.Id;
 import jakarta.persistence.*;
 
-@Entity
-public class Internship {
 
+@Entity
+@Table(name = "Internship")
+public class Internship {
     //Unique table ID
     @Id
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
@@ -75,5 +76,123 @@ public class Internship {
     }
 
     //Getters and Setters
+    public Long getInternshipId() {
+        return internshipId;
+    }
 
+    public void setInternshipId(Long internshipId) {
+        this.internshipId = internshipId;
+    }
+
+    public String getCompany() {
+        return company;
+    }
+
+    public void setCompany(String company) {
+        this.company = company;
+    }
+
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
+    public Date getDateApplied() {
+        return dateApplied;
+    }
+
+    public void setDateApplied(Date dateApplied) {
+        this.dateApplied = dateApplied;
+    }
+
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
+    public String getAssessment() {
+        return assesment;
+    }
+
+    public void setAssessment(String assessment) {
+        this.assesment = assessment;
+    }
+
+    public Boolean getAssessmentCompleted() {
+        return assesment_completed;
+    }
+
+    public void setAssessmentCompleted(Boolean assessmentCompleted) {
+        this.assesment_completed = assessmentCompleted;
+    }
+
+    public String getContactPersonName() {
+        return contactPersonName;
+    }
+
+    public void setContactPersonName(String contactPersonName) {
+        this.contactPersonName = contactPersonName;
+    }
+
+    public String getContactPersonEmail() {
+        return contactPersonEmail;
+    }
+
+    public void setContactPersonEmail(String contactPersonEmail) {
+        this.contactPersonEmail = contactPersonEmail;
+    }
+
+    public String getContactPersonPhone() {
+        return contactPersonPhone;
+    }
+
+    public void setContactPersonPhone(String contactPersonPhone) {
+        this.contactPersonPhone = contactPersonPhone;
+    }
+
+    public String getJobDescription() {
+        return jobDescription;
+    }
+
+    public void setJobDescription(String jobDescription) {
+        this.jobDescription = jobDescription;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public Boolean getRemote() {
+        return remote;
+    }
+
+    public void setRemote(Boolean remote) {
+        this.remote = remote;
+    }
+
+    public Boolean getResponse() {
+        return response;
+    }
+
+    public void setResponse(Boolean response) {
+        this.response = response;
+    }
+
+    public String getJobLink() {
+        return jobLink;
+    }
+
+    public void setJobLink(String jobLink) {
+        this.jobLink = jobLink;
+    }
 }
