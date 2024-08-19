@@ -37,12 +37,37 @@ public class JobInfo {
     private Boolean gotResponse;
 
 
-
-
     public JobInfo() {
     }
 
+    public JobInfo(String company, String jobTitle, String jobUrlLink, Date dateApplied, String contactName, String contactEmail, String contactNumber, String referral, Boolean remote, Boolean gotResponse) {
+        this.company = company;
+        this.jobTitle = jobTitle;
+        this.jobUrlLink = jobUrlLink;
+        this.dateApplied = dateApplied;
+        this.contactName = contactName;
+        this.contactEmail = contactEmail;
+        this.contactNumber = contactNumber;
+        this.referral = referral;
+        this.remote = remote;
+        this.gotResponse = gotResponse;
+    }
 
+    public JobInfo(long jobInfoId, String company, String jobTitle, String jobUrlLink, Date dateApplied, String contactName, String contactEmail, String contactNumber, String referral, Boolean remote, Boolean gotResponse) {
+        this.jobInfoId = jobInfoId;
+        this.company = company;
+        this.jobTitle = jobTitle;
+        this.jobUrlLink = jobUrlLink;
+        this.dateApplied = dateApplied;
+        this.contactName = contactName;
+        this.contactEmail = contactEmail;
+        this.contactNumber = contactNumber;
+        this.referral = referral;
+        this.remote = remote;
+        this.gotResponse = gotResponse;
+    }
+
+    
 
     @Override
     public int hashCode() { // Overridden method to generate a hash code for the User object.
