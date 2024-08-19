@@ -43,5 +43,10 @@ public class JobService {
         return jobRepository.save(jobInfo);
     }
 
+    public Boolean deleteById(Long id) {
+        jobRepository.deleteById(id);
+        return true;
+    }
+
     
 }
