@@ -48,8 +48,10 @@ public class JobInfo {
     @Column(name = "referral_name", length = 100)
     private String referral;
 
+    @Column(name = "remote")
     private Boolean remote;
 
+    @Column(name = "got_response")
     private Boolean gotResponse;
 
     @OneToMany(fetch = FetchType.LAZY)
