@@ -1,7 +1,6 @@
 package Models;
-import java.time.LocalDate;
-import java.util.Objects;
 
+import java.time.LocalDate;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 import org.springframework.data.annotation.Id;
@@ -126,7 +125,7 @@ public class Internship {
     }
 
     public void setAssessment(String assessment) {
-        this.assesment = assessment;
+        this.assessment = assessment;
     }
 
     public Boolean getAssessmentCompleted() {

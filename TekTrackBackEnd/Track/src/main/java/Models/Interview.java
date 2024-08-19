@@ -1,11 +1,9 @@
 package Models;
 
-import java.sql.Date;
-import java.time.LocalDate;
 
+import java.time.LocalDate;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
-
 import jakarta.persistence.*;
 
 @Entity
@@ -15,7 +13,7 @@ public class Interview {
 
     //Unique table ID
     @Id
-    @GeneratedValue(name = "interview_id", strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long interviewId;
 
     //Table columns
@@ -50,7 +48,7 @@ public class Interview {
     //Constructors
     public Interview() {}
 
-    public Interview(Date interviewDate, String stage, Boolean tyNote, String interviewType, String interviewLink, String interviewStatus, String interviewContactName, String interviewContactEmail) {
+    public Interview(LocalDate interviewDate, String stage, Boolean tyNote, String interviewType, String interviewLink, String interviewStatus, String interviewContactName, String interviewContactEmail) {
         this.interviewDate = interviewDate;
         this.stage = stage;
         this.tyNote = tyNote;
