@@ -31,6 +31,12 @@ public class UserController {
         return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
     }
 
+    @GetMapping("/user/{username}")
+    public ResponseEntity<User> getUser(@PathVariable String username) {
+        // Calls the service to find a user by ID and returns it with an HTTP 200 OK status.
+        return new ResponseEntity<>(userService.findByUserName(username), HttpStatus.OK);
+    }
+
     @PostMapping("/new_user")  // Handles POST requests to "/newUser".
     public ResponseEntity<User> create(@RequestBody User user) {
         // Calls the service to create a new user and returns the created user with an HTTP 201 Created status.
