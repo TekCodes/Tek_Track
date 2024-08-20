@@ -2,10 +2,13 @@ package com.Tek.Track;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import Models.User;
+import Repositories.UserRepository;
 import Services.UserService;
+import java.util.Optional;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,49 +19,49 @@ import org.mockito.Mockito;
 @SpringBootTest(classes = TrackApplication.class)
 public class UserServiceUnitTests {
 
+    @MockBean // Mock the UserRepository to isolate service layer tests
+    private UserRepository userRepository;
+
     @Autowired
     private UserService userService;
 
     @Test
     public void whenUserNameIsProvided_thenRetrievedUserNameIsCorrect() {
         String mockUserName = "Username";
-        String expectedUserName = "Username";
 
-        Mockito.when(userService.findByUserName(mockUserName)).thenReturn(new User(mockUserName));
+        User mockUser = new User();
+        mockUser.setUserName(mockUserName);
+
+        Mockito.when(userRepository.findByUsername(mockUserName)).thenReturn(mockUser);
 
         String testName = userService.findByUserName(mockUserName).getUserName();
 
-        Assert.assertEquals(expectedUserName, testName);
+        Assert.assertEquals(mockUserName, testName);
     }
 
-    @SuppressWarnings("removal")
+
     @Test
     public void whenUserIdIsProvided_thenRetrievedUserIsCorrect() {
+        Long mockId = 2L;
         String mockFirstName = "FirstName";
-        //String expectedFirstName = "FirstName";
         String mockLastName = "LastName";
-        //String expectedLastName = "LastName";
         String mockEmail = "Email@email.email";
-        //String expectedEmail = "Email@email.email";
         String mockUserName = "Username";
-        //String expectedUserName = "Username";
         String mockPassword = "Qq!1";
-        //String expectedPassword = "Qq!1";
-        Long id = new Long(2);
 
-        Mockito.when(userService.findById(id)).thenReturn(new User(mockFirstName, mockLastName, mockEmail, mockUserName, mockPassword));
+        User mockUser = new User(mockFirstName, mockLastName, mockEmail, mockUserName, mockPassword, null);
+        mockUser.setUserId(mockId);
 
-        String testFirstName = userService.findById(id).getfirstName();
-        String testLastName = userService.findById(id).getlastName();
-        String testEmail = userService.findById(id).getEmail();
-        String testUserName = userService.findById(id).getUserName();
-        String testPassword = userService.findById(id).getPassword();// Might not pass due to JSON ignore annotation on User Model class
+        Mockito.when(userRepository.findById(mockId)).thenReturn(Optional.of(mockUser));
 
-        Assert.assertEquals(mockFirstName, testFirstName);
-        Assert.assertEquals(mockLastName, testLastName);
-        Assert.assertEquals(mockEmail, testEmail);
-        Assert.assertEquals(mockUserName, testUserName);
-        Assert.assertEquals(mockPassword, testPassword);
+        User retrievedUser = userService.findById(mockId);
+
+        Assert.assertNotNull(retrievedUser);
+        Assert.assertEquals(mockFirstName, retrievedUser.getfirstName());
+        Assert.assertEquals(mockLastName, retrievedUser.getlastName());
+        Assert.assertEquals(mockEmail, retrievedUser.getEmail());
+        Assert.assertEquals(mockUserName, retrievedUser.getUserName());
+        Assert.assertEquals(mockPassword, retrievedUser.getPassword());
     }
 
 }
