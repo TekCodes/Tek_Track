@@ -66,6 +66,15 @@ public class User {
         this.jobInfo = jobInfo; // Sets the user's job information.
     }
 
+    public User(long userId, String firstName, String lastName, String email, String userName, String password) {
+        this.userId = userId; // Sets the user's ID.
+        this.firstName = firstName; // Sets the user's first name.
+        this.lastName = lastName; // Sets the user's last name.
+        this.email = email; // Sets the user's email address.
+        this.userName = userName; // Sets the user's username.
+        this.password = password; // Sets the user's password.
+    }
+
     public User(long userId, String firstName, String lastName, String email, String userName, String password, List<JobInfo> jobInfo) { // Constructor to initialize a User object with `userId`.
         this.userId = userId; // Sets the user's ID.
         this.firstName = firstName; // Sets the user's first name.
