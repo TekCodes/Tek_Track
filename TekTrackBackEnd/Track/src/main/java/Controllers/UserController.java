@@ -26,7 +26,7 @@ public class UserController {
     }
 
     @GetMapping("/user")  // Handles GET requests to "/user" (likely meant to be a path with an ID).
-    public ResponseEntity<User> getUser(@PathVariable Long id) {
+    public ResponseEntity<User> getUserById(@PathVariable Long id) {
         // Calls the service to find a user by ID and returns it with an HTTP 200 OK status.
         return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
     }
