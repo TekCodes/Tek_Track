@@ -25,7 +25,7 @@ public class UserServiceUnitTests {
     @Autowired
     private UserService userService;
 
-    @Test
+    @Test // Test findByUsername
     public void whenUserNameIsProvided_thenRetrievedUserNameIsCorrect() {
         String mockUserName = "Username";
 
@@ -40,7 +40,7 @@ public class UserServiceUnitTests {
     }
 
 
-    @Test
+    @Test // Test findById
     public void whenUserIdIsProvided_thenRetrievedUserIsCorrect() {
         Long mockId = 2L;
         String mockFirstName = "FirstName";
@@ -63,5 +63,19 @@ public class UserServiceUnitTests {
         Assert.assertEquals(mockUserName, retrievedUser.getUserName());
         Assert.assertEquals(mockPassword, retrievedUser.getPassword());
     }
+
+    @Test // Test create method in User Service
+    public void whenNewUserIsProvided_thenNewUserIsCreated() {
+        User mockUser = new User("first", "last", "email@email.com", "username", "password", null);
+
+        Mockito.when(userRepository.save(mockUser)).thenReturn(mockUser);
+
+        User createdUser = userService.create(mockUser);
+
+        Assert.assertNotNull(createdUser);
+        Assert.assertEquals(mockUser.getUserName(), createdUser.getUserName());
+    }
+
+    
 
 }
