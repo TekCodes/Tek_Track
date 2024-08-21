@@ -138,6 +138,17 @@ public class UserServiceUnitTests {
         Assert.assertEquals(2, result.size());
     }
 
+    @Test // Test optional user return in service
+    public void whenUserIdDoesNotExist_thenReturnNull() {
+        Long mockId = 99L;
+
+        Mockito.when(userRepository.findById(mockId)).thenReturn(Optional.empty());
+
+        User result = userService.findById(mockId);
+
+        Assert.assertNull(result);
+    }
+
     
 
 }
