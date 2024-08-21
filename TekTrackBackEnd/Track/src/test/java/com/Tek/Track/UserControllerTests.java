@@ -2,6 +2,8 @@ package com.Tek.Track;
 
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeEach;
+import org.mockito.MockitoAnnotations;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -21,6 +23,11 @@ public class UserControllerTests {
     @MockBean
     private UserController userController;
 
-    private List<User> userList;
+     @BeforeEach
+    public void setUp() {
+        MockitoAnnotations.openMocks(this); // Initialize mocks before each test
+    }
+
+    
 
 }
