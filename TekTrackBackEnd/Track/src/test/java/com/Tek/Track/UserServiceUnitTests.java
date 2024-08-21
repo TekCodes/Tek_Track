@@ -76,6 +76,28 @@ public class UserServiceUnitTests {
         Assert.assertEquals(mockUser.getUserName(), createdUser.getUserName());
     }
 
+    @Test // Test Update method in User Service
+    public void whenUserIsUpdated_thenUserDetailsAreUpdated() {
+        Long mockId = 2L;
+        User existingUser = new User("OldFirstName", "OldLastName", "old.email@email.email", "OldUsername", "OldPassword", null);
+        existingUser.setUserId(mockId);
+
+        User updatedUser = new User("NewFirstName", "NewLastName", "new.email@email.email", "NewUsername", "NewPassword", null);
+        updatedUser.setUserId(mockId);
+
+        Mockito.when(userRepository.findById(mockId)).thenReturn(Optional.of(existingUser));
+        Mockito.when(userRepository.save(updatedUser)).thenReturn(updatedUser);
+
+        User result = userService.update(mockId, updatedUser);
+
+        Assert.assertNotNull(result);
+        Assert.assertEquals(updatedUser.getfirstName(), result.getfirstName());
+        Assert.assertEquals(updatedUser.getlastName(), result.getlastName());
+        Assert.assertEquals(updatedUser.getEmail(), result.getEmail());
+        Assert.assertEquals(updatedUser.getUserName(), result.getUserName());
+        Assert.assertEquals(updatedUser.getPassword(), result.getPassword());
+    }
+
     
 
 }
