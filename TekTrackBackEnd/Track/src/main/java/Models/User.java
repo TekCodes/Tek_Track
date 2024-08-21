@@ -25,10 +25,10 @@ public class User {
     private long userId; // Defines the `userId` field, which is a unique identifier for the user.
 
     @Column(name = "first_name", length = 50, nullable = false) // Maps the `fName` field to the "first_name" column in the database, with a maximum length of 50 characters.
-    private String fName; // Defines the `fName` field to store the user's first name.
+    private String firstName; // Defines the `fName` field to store the user's first name.
 
     @Column(name = "last_name", length = 50, nullable = false) // Maps the `lName` field to the "last_name" column in the database, with a maximum length of 50 characters.
-    private String lName; // Defines the `lName` field to store the user's last name.
+    private String lastName; // Defines the `lName` field to store the user's last name.
 
     @Column(length = 254, unique = true, nullable = false) // Maps the `email` field to a column in the database with a maximum length of 254 characters and ensures uniqueness.
     private String email; // Defines the `email` field to store the user's email address.
@@ -45,19 +45,40 @@ public class User {
 
     public User() {} // Default constructor, required by JPA.
 
-    public User(String fName, String lName, String email, String userName, String password, List<JobInfo> jobInfo) { // Constructor to initialize a User object without `userId`.
-        this.fName = fName; // Sets the user's first name.
-        this.lName = lName; // Sets the user's last name.
+    public User(String userName) { // Created only for basic Mockito test
+        this.userName = userName;
+    }
+
+    public User(String firstName, String lastName, String email, String userName, String password) { // Constructor created for testing with Mockito
+        this.firstName = firstName; // Sets the user's first name.
+        this.lastName = lastName; // Sets the user's last name.
+        this.email = email; // Sets the user's email address.
+        this.userName = userName; // Sets the user's username.
+        this.password = password; // Sets the user's password.
+    }
+
+    public User(String firstName, String lastName, String email, String userName, String password, List<JobInfo> jobInfo) { // Constructor to initialize a User object without `userId`.
+        this.firstName = firstName; // Sets the user's first name.
+        this.lastName = lastName; // Sets the user's last name.
         this.email = email; // Sets the user's email address.
         this.userName = userName; // Sets the user's username.
         this.password = password; // Sets the user's password.
         this.jobInfo = jobInfo; // Sets the user's job information.
     }
 
-    public User(long userId, String fName, String lName, String email, String userName, String password, List<JobInfo> jobInfo) { // Constructor to initialize a User object with `userId`.
+    public User(long userId, String firstName, String lastName, String email, String userName, String password) {
         this.userId = userId; // Sets the user's ID.
-        this.fName = fName; // Sets the user's first name.
-        this.lName = lName; // Sets the user's last name.
+        this.firstName = firstName; // Sets the user's first name.
+        this.lastName = lastName; // Sets the user's last name.
+        this.email = email; // Sets the user's email address.
+        this.userName = userName; // Sets the user's username.
+        this.password = password; // Sets the user's password.
+    }
+
+    public User(long userId, String firstName, String lastName, String email, String userName, String password, List<JobInfo> jobInfo) { // Constructor to initialize a User object with `userId`.
+        this.userId = userId; // Sets the user's ID.
+        this.firstName = firstName; // Sets the user's first name.
+        this.lastName = lastName; // Sets the user's last name.
         this.email = email; // Sets the user's email address.
         this.userName = userName; // Sets the user's username.
         this.password = password; // Sets the user's password.
@@ -72,20 +93,20 @@ public class User {
         this.userId = userId; // Sets the user's ID.
     }
 
-    public String getfName() { // Getter method for `fName`.
-        return fName; // Returns the user's first name.
+    public String getfirstName() { // Getter method for `fName`.
+        return firstName; // Returns the user's first name.
     }
 
-    public void setfName(String fName) { // Setter method for `fName`.
-        this.fName = fName; // Sets the user's first name.
+    public void setfirstName(String firstName) { // Setter method for `fName`.
+        this.firstName = firstName; // Sets the user's first name.
     }
 
-    public String getlName() { // Getter method for `lName`.
-        return lName; // Returns the user's last name.
+    public String getlastName() { // Getter method for `lName`.
+        return lastName; // Returns the user's last name.
     }
 
-    public void setlName(String lName) { // Setter method for `lName`.
-        this.lName = lName; // Sets the user's last name.
+    public void setlastName(String lastName) { // Setter method for `lName`.
+        this.lastName = lastName; // Sets the user's last name.
     }
 
     public String getEmail() { // Getter method for `email`.
@@ -126,14 +147,14 @@ public class User {
         if (o == null || getClass() != o.getClass()) return false; // Checks if the compared object is null or of a different class.
         User user = (User) o; // Casts the object to User.
         return userId == user.userId && // Compares the `userId` fields.
-                Objects.equals(fName, user.fName) && // Compares the `fName` fields.
-                Objects.equals(lName, user.lName) && // Compares the `lName` fields.
+                Objects.equals(firstName, user.firstName) && // Compares the `fName` fields.
+                Objects.equals(lastName, user.lastName) && // Compares the `lName` fields.
                 Objects.equals(userName, user.userName) && // Compares the `userName` fields.
                 Objects.equals(password, user.password); // Compares the `password` fields.
     }
 
     @Override
     public int hashCode() { // Overridden method to generate a hash code for the User object.
-        return Objects.hash(userId, fName, lName, userName, password); // Returns a hash code based on the `userId`, `fName`, `lName`, `userName`, and `password`.
+        return Objects.hash(userId, firstName, lastName, userName, password); // Returns a hash code based on the `userId`, `fName`, `lName`, `userName`, and `password`.
     }
 }

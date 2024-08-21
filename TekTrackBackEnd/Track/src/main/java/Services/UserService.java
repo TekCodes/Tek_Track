@@ -2,6 +2,7 @@ package Services;
 
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import Models.User;
 import Repositories.UserRepository;
@@ -35,6 +36,20 @@ public class UserService {
 
         User user = optionalUser.get();  // Retrieves the user from the Optional
         return user;  // Returns the found user
+    }
+
+    public User findByUserName(String username) {
+        // Use the repository to find the user by username and wrap it in an Optional
+        Optional<User> userOptional = Optional.ofNullable(userRepository.findByUsername(username));
+    
+        // If the user is found, return the User object
+        if (userOptional.isPresent()) {
+            return userOptional.get();
+        } else {
+            // Handle the case where the user is not found
+            throw new UsernameNotFoundException("User with username " + username + " not found.");
+            // Alternatively, you could return null or handle it in another way depending on your use case.
+        }
     }
 
     // Method to create a new user
@@ -78,8 +93,8 @@ public class UserService {
         }
 
         User originalUser = optionalUser.get();  // Retrieves the existing user from the Optional
-        originalUser.setfName(newUserData.getfName());  // Updates the first name
-        originalUser.setlName(newUserData.getlName());  // Updates the last name
+        originalUser.setfirstName(newUserData.getfirstName());  // Updates the first name
+        originalUser.setlastName(newUserData.getlastName());  // Updates the last name
         originalUser.setUserName(newUserData.getUserName());  // Updates the username
         originalUser.setPassword(newUserData.getPassword());  // Updates the password
         return userRepository.save(originalUser);  // Saves the updated user and returns the saved user
