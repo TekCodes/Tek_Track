@@ -149,6 +149,15 @@ public class UserServiceUnitTests {
         Assert.assertNull(result);
     }
 
-    
+    @Test // test optional username return in service
+    public void whenUserNameDoesNotExist_thenReturnNull() {
+        String mockUserName = "NonExistentUser";
+
+        Mockito.when(userRepository.findByUsername(mockUserName)).thenReturn(null);
+
+        User result = userService.findByUserName(mockUserName);
+
+        Assert.assertNull(result);
+    }
 
 }
