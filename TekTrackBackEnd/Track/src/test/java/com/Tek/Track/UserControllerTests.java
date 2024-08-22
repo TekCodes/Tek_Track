@@ -92,6 +92,18 @@ public class UserControllerTests {
         Assert.assertEquals(createdUser, response.getBody());
     }
 
+    @Test
+    public void testUpdateUser() {
+        Long userId = 1L;
+        User updatedUser = new User(userId, "FirstName", "LastName", "email@example.com", "user", "password");
+        when(userService.update(userId, updatedUser)).thenReturn(updatedUser);
+
+        ResponseEntity<User> response = userController.update(userId, updatedUser);
+
+        Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
+        Assert.assertEquals(updatedUser, response.getBody());
+    }
+
     
 
 
