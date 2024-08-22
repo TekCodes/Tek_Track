@@ -80,6 +80,18 @@ public class UserControllerTests {
         Assert.assertEquals(mockUser, response.getBody());
     }
 
+    @Test
+    public void testCreateUser() {
+        User newUser = new User("FirstName", "LastName", "email@example.com", "user", "password");
+        User createdUser = new User(1L, "FirstName", "LastName", "email@example.com", "user", "password");
+        when(userService.create(newUser)).thenReturn(createdUser);
+
+        ResponseEntity<User> response = userController.create(newUser);
+
+        Assert.assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        Assert.assertEquals(createdUser, response.getBody());
+    }
+
     
 
 
