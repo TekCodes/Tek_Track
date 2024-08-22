@@ -53,6 +53,20 @@ public class UserControllerTests {
         Assert.assertEquals(mockUsers, response.getBody());
     }
 
+    @Test
+    public void testGetUserById() {
+        Long userId = 1L;
+        User mockUser = new User(userId, "FirstName", "LastName", "email@example.com", "user", "password");
+        when(userService.findById(userId)).thenReturn(mockUser);
 
+        
+        ResponseEntity<User> response = userController.getUserById(userId);
+
+        
+        Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
+        Assert.assertEquals(mockUser, response.getBody());
+    }
+
+    
 
 }
