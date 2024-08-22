@@ -67,6 +67,20 @@ public class UserControllerTests {
         Assert.assertEquals(mockUser, response.getBody());
     }
 
+    @Test
+    public void testGetUserByUserName() {
+        String username = "user";
+        User mockUser = new User(1L, "FirstName", "LastName", "email@example.com", username, "password");
+        when(userService.findByUserName(username)).thenReturn(mockUser);
+
+        
+        ResponseEntity<User> response = userController.getUserByUserName(username);
+
+        Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
+        Assert.assertEquals(mockUser, response.getBody());
+    }
+
     
+
 
 }
