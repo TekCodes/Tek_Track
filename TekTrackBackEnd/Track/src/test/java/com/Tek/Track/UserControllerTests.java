@@ -115,7 +115,16 @@ public class UserControllerTests {
         Assert.assertTrue(response.getBody());
     }
 
-    
+    @Test
+    public void testDeleteUserByUserName() {
+        String username = "user";
+        when(userService.deleteByUserName(username)).thenReturn(true);
+
+        ResponseEntity<Boolean> response = userController.deleteByUserName(username);
+
+        Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
+        Assert.assertTrue(response.getBody());
+    }
 
 
 }
