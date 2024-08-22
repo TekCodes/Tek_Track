@@ -104,6 +104,17 @@ public class UserControllerTests {
         Assert.assertEquals(updatedUser, response.getBody());
     }
 
+    @Test
+    public void testDeleteUserById() {
+        Long userId = 1L;
+        when(userService.deleteById(userId)).thenReturn(true);
+
+        ResponseEntity<Boolean> response = userController.delete(userId);
+
+        Assert.assertEquals(HttpStatus.OK, response.getStatusCode());
+        Assert.assertTrue(response.getBody());
+    }
+
     
 
 
