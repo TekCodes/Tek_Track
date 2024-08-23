@@ -53,36 +53,36 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
+		<dependency> <!-- SECURITY WILL USE LATER -->
 			<groupId>org.springframework.security</groupId>
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
+		<dependency> <!-- ANNOTATIONS DEPENDENCY -->
     		<groupId>org.projectlombok</groupId>
     		<artifactId>lombok</artifactId>
     		<version>1.18.34</version>
     		<scope>provided</scope>
 		</dependency>
-		<dependency>
+		<dependency> <!-- MOCKITO CORE JUNIT4/ALL -->
     		<groupId>org.mockito</groupId>
     		<artifactId>mockito-core</artifactId>
     		<version>5.12.0</version>
     		<scope>test</scope>
 		</dependency>
-		<dependency>
+		<dependency> <!-- MOCKITO JUNIT5 -->
     		<groupId>org.mockito</groupId>
     		<artifactId>mockito-junit-jupiter</artifactId>
     		<version>5.12.0</version>
     		<scope>test</scope>
 		</dependency>
-		<dependency>
+		<dependency> <!-- JUNIT4 -->
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.13.2</version>
 			<scope>test</scope>
 		</dependency>
-		<dependency>
+		<dependency> <!-- JUNIT5 -->
 			<groupId>org.junit.jupiter</groupId>
 			<artifactId>junit-jupiter-api</artifactId>
 			<version>5.11.0</version>
