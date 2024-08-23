@@ -199,6 +199,27 @@ public class JobInfo {
     }
 
     @Override
+    public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    JobInfo jobInfo = (JobInfo) o;
+    return jobInfoId == jobInfo.jobInfoId &&
+           Objects.equals(company, jobInfo.company) &&
+           Objects.equals(jobTitle, jobInfo.jobTitle) &&
+           Objects.equals(jobUrlLink, jobInfo.jobUrlLink) &&
+           Objects.equals(jobDesc, jobInfo.jobDesc) &&
+           Objects.equals(dateApplied, jobInfo.dateApplied) &&
+           Objects.equals(contactName, jobInfo.contactName) &&
+           Objects.equals(contactEmail, jobInfo.contactEmail) &&
+           Objects.equals(contactNumber, jobInfo.contactNumber) &&
+           Objects.equals(referral, jobInfo.referral) &&
+           Objects.equals(remote, jobInfo.remote) &&
+           Objects.equals(gotResponse, jobInfo.gotResponse) &&
+           Objects.equals(user, jobInfo.user);
+}
+
+
+    @Override
     public int hashCode() { // Overridden method to generate a hash code for the User object.
         return Objects.hash(jobInfoId, company, jobTitle, jobUrlLink, dateApplied, contactName, contactEmail, contactNumber, referral, remote, gotResponse, user); // Returns a hash code
     }
