@@ -1,4 +1,4 @@
-package com.Tek.Track;
+package com.Tek.Track.UserTests;
 
 import org.junit.Assert;
 import org.junit.Test;
