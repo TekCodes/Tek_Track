@@ -92,5 +92,24 @@ public class JobModelUnitTests {
         Assert.assertNotEquals(jobInfo.hashCode(), differentJobInfo.hashCode());
     }
 
-    
+    @Test
+    public void testConstructor() {
+        User user = new User();
+        Date dateApplied = new Date();
+
+        JobInfo jobInfo = new JobInfo("Company", "Job Title", "http://joblink.com", "Job Description", dateApplied, "Contact Name", "contact@example.com", "1234567890", "Referral Name", true, true, user);
+
+        Assert.assertEquals("Company", jobInfo.getCompany());
+        Assert.assertEquals("Job Title", jobInfo.getJobTitle());
+        Assert.assertEquals("http://joblink.com", jobInfo.getJobUrlLink());
+        Assert.assertEquals("Job Description", jobInfo.getJobDesc());
+        Assert.assertEquals(dateApplied, jobInfo.getDateApplied());
+        Assert.assertEquals("Contact Name", jobInfo.getContactName());
+        Assert.assertEquals("contact@example.com", jobInfo.getContactEmail());
+        Assert.assertEquals("1234567890", jobInfo.getContactNumber());
+        Assert.assertEquals("Referral Name", jobInfo.getReferral());
+        Assert.assertEquals(true, jobInfo.getRemote());
+        Assert.assertEquals(true, jobInfo.getGotResponse());
+        Assert.assertEquals(user, jobInfo.getUser());
+    }
 }
