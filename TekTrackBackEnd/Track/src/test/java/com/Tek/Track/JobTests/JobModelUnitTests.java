@@ -1,11 +1,9 @@
 package com.Tek.Track.JobTests;
 
 import java.util.Date;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import Models.JobInfo;
 import Models.User;
 
