@@ -61,5 +61,30 @@ public class JobModelUnitTests {
         Assert.assertEquals(user, jobInfo.getUser());
     }
 
+    @Test
+    public void testEquals() {
+        // Test reflexive property
+        Assert.assertTrue(jobInfo.equals(jobInfo));
+
+        // Test symmetric property
+        Assert.assertTrue(jobInfo.equals(identicalJobInfo));
+        Assert.assertTrue(identicalJobInfo.equals(jobInfo));
+
+        // Test transitive property
+        JobInfo thirdIdenticalJobInfo = new JobInfo(1L, "Company", "Job Title", "http://joblink.com", "Job Description", jobInfo.getDateApplied(), "Contact Name", "contact@example.com", "1234567890", "Referral Name", true, true, jobInfo.getUser());
+        Assert.assertTrue(jobInfo.equals(identicalJobInfo));
+        Assert.assertTrue(identicalJobInfo.equals(thirdIdenticalJobInfo));
+        Assert.assertTrue(jobInfo.equals(thirdIdenticalJobInfo));
+
+        // Test inequality
+        Assert.assertFalse(jobInfo.equals(differentJobInfo));
+
+        // Test against null
+        Assert.assertFalse(jobInfo.equals(null));
+
+        // Test against different object type
+        Assert.assertFalse(jobInfo.equals(new Object()));
+    }
+
     
 }
