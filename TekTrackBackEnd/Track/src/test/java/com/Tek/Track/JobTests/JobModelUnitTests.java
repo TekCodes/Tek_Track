@@ -86,5 +86,11 @@ public class JobModelUnitTests {
         Assert.assertFalse(jobInfo.equals(new Object()));
     }
 
+    @Test
+    public void testHashCode() {
+        Assert.assertEquals(jobInfo.hashCode(), identicalJobInfo.hashCode());
+        Assert.assertNotEquals(jobInfo.hashCode(), differentJobInfo.hashCode());
+    }
+
     
 }
