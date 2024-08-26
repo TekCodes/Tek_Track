@@ -4,7 +4,9 @@ import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import Models.Internship;
 import Repositories.InternshipRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class InternshipService {
 
         //Inject interviewRepository

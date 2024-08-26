@@ -38,7 +38,7 @@ public class UserService {
         return user;  // Returns the found user
     }
 
-    public User findByUserName(String username) {
+    public User findByUserName(String username) throws Exception {
         // Use the repository to find the user by username and wrap it in an Optional
         Optional<User> userOptional = Optional.ofNullable(userRepository.findByUsername(username));
     
@@ -47,7 +47,7 @@ public class UserService {
             return userOptional.get();
         } else {
             // Handle the case where the user is not found
-            throw new UsernameNotFoundException("User with username " + username + " not found.");
+            throw new Exception("User with username " + username + " not found.");
             // Alternatively, you could return null or handle it in another way depending on your use case.
         }
     }

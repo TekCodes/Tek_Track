@@ -8,7 +8,7 @@ import Models.Internship;
 import Services.InternshipService;
 
 @RestController
-@RequestMapping
+@RequestMapping("/internships")
 public class InternshipController {
 
     @Autowired //Inject Service dependency
@@ -18,12 +18,12 @@ public class InternshipController {
         this.internshipService = internshipService;
     }
 
-        @GetMapping("/internship")  
+    @GetMapping("/internship")
     public ResponseEntity<List<Internship>> getAllInternship() { 
         return new ResponseEntity<>(internshipService.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")  
+    @GetMapping("/internship/{id}")
     public ResponseEntity<Internship> getInternship(@PathVariable Long id) {
         Internship internship = internshipService.findById(id);
         if ( internship == null){
