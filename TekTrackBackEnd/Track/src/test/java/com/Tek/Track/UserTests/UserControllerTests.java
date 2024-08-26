@@ -13,9 +13,9 @@ import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
-import Controllers.UserController;
-import Models.User;
-import Services.UserService;
+import com.Tek.Track.Controllers.UserController;
+import com.Tek.Track.Models.User;
+import com.Tek.Track.Services.UserService;
 
 @WebMvcTest(controllers = UserController.class)
 @ActiveProfiles("test")
