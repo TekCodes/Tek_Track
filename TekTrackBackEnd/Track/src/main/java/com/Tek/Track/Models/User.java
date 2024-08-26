@@ -126,13 +126,13 @@ public class User {
         this.password = password; // Sets the user's password.
     }
 
-//    public List<JobInfo> getJobInfo() { // Getter method to retrieve job information.
-//        return jobInfo; // Returns the user's job information.
-//    }
-//
-//    public void setJobInfo(List<JobInfo> jobInfo) { // Setter method for job information.
-//        this.jobInfo = jobInfo; // Sets the user's job information.
-//    }
+    public List<JobInfo> getJobInfo() { // Getter method to retrieve job information.
+        return jobInfo; // Returns the user's job information.
+    }
+
+    public void setJobInfo(List<JobInfo> jobInfo) { // Setter method for job information.
+        this.jobInfo = jobInfo; // Sets the user's job information.
+    }
 
     @Override
     public boolean equals(Object o) { // Overridden method to compare User objects for equality.
