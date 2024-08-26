@@ -10,8 +10,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import com.Tek.Track.TrackApplication;
 
-import Repositories.JobRepository;
-import Services.JobService;
+import com.Tek.Track.Repositories.JobRepository;
+import com.Tek.Track.Services.JobService;
 
 @ActiveProfiles("test")
 @RunWith(SpringJUnit4ClassRunner.class)

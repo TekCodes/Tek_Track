@@ -2,7 +2,7 @@ package com.Tek.Track.UserTests;
 
 import org.junit.Assert;
 import org.junit.Test;
-import Models.User;
+import com.Tek.Track.Models.User;
 
 public class UserModelUnitTests {
 
@@ -33,10 +33,10 @@ public void testEqualsAndHashCode() {
     User user3 = new User(2L, "Jane", "Doe", "jane.doe@example.com", "janedoe", "differentpassword");
     
     // Test equality
-    Assert.assertTrue(user1.equals(user2)); // Same data, should be equal
-    Assert.assertFalse(user1.equals(user3)); // Different data, should not be equal
-    Assert.assertFalse(user1.equals(null)); // Null check
-    Assert.assertFalse(user1.equals("String")); // Type check
+    Assert.assertEquals(user1, user2); // Same data, should be equal
+    Assert.assertNotEquals(user1, user3); // Different data, should not be equal
+    Assert.assertNotEquals(null, user1); // Null check
+    Assert.assertNotEquals("String", user1); // Type check
     
     // Test hashCode
     Assert.assertEquals(user1.hashCode(), user2.hashCode()); // Same data, should have the same hash code

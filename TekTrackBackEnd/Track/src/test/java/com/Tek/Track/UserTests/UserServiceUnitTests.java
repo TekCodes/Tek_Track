@@ -6,9 +6,9 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import com.Tek.Track.TrackApplication;
-import Models.User;
-import Repositories.UserRepository;
-import Services.UserService;
+import com.Tek.Track.Models.User;
+import com.Tek.Track.Repositories.UserRepository;
+import com.Tek.Track.Services.UserService;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -35,7 +35,7 @@ public class UserServiceUnitTests {
         User mockUser = new User();
         mockUser.setUserName(mockUserName);
 
-        Mockito.when(userRepository.findByUsername(mockUserName)).thenReturn(mockUser);
+        Mockito.when(userRepository.findByUserName(mockUserName)).thenReturn(mockUser);
 
         String testName = userService.findByUserName(mockUserName).getUserName();
 
@@ -52,7 +52,7 @@ public class UserServiceUnitTests {
         String mockUserName = "Username";
         String mockPassword = "Qq!1";
 
-        User mockUser = new User(mockFirstName, mockLastName, mockEmail, mockUserName, mockPassword, null);
+        User mockUser = new User(mockFirstName, mockLastName, mockEmail, mockUserName, mockPassword);
         mockUser.setUserId(mockId);
 
         Mockito.when(userRepository.findById(mockId)).thenReturn(Optional.of(mockUser));
@@ -69,7 +69,7 @@ public class UserServiceUnitTests {
 
     @Test // Test create method in User Service
     public void whenNewUserIsProvided_thenNewUserIsCreated() {
-        User mockUser = new User("first", "last", "email@email.com", "username", "password", null);
+        User mockUser = new User("first", "last", "email@email.com", "username", "password");
 
         Mockito.when(userRepository.save(mockUser)).thenReturn(mockUser);
 
@@ -82,10 +82,10 @@ public class UserServiceUnitTests {
     @Test // Test Update method in User Service
     public void whenUserIsUpdated_thenUserDetailsAreUpdated() {
         Long mockId = 2L;
-        User existingUser = new User("OldFirstName", "OldLastName", "old.email@email.email", "OldUsername", "OldPassword", null);
+        User existingUser = new User("OldFirstName", "OldLastName", "old.email@email.email", "OldUsername", "OldPassword");
         existingUser.setUserId(mockId);
 
-        User updatedUser = new User("NewFirstName", "NewLastName", "new.email@email.email", "NewUsername", "NewPassword", null);
+        User updatedUser = new User("NewFirstName", "NewLastName", "new.email@email.email", "NewUsername", "NewPassword");
         updatedUser.setUserId(mockId);
 
         Mockito.when(userRepository.findById(mockId)).thenReturn(Optional.of(existingUser));
@@ -117,8 +117,8 @@ public class UserServiceUnitTests {
     public void whenUserIsDeletedByUsername_thenReturnTrue() {
         String mockUserName = "Username";
 
-        Mockito.when(userRepository.findByUsername(mockUserName)).thenReturn(new User());
-        Mockito.doNothing().when(userRepository).findByUsername(mockUserName);
+        Mockito.when(userRepository.findByUserName(mockUserName)).thenReturn(new User());
+        Mockito.doNothing().when(userRepository).findByUserName(mockUserName);
 
         boolean isDeleted = userService.deleteByUserName(mockUserName);
 
@@ -154,7 +154,7 @@ public class UserServiceUnitTests {
     public void whenUserNameDoesNotExist_thenReturnNull() throws Exception {
         String mockUserName = "NonExistentUser";
 
-        Mockito.when(userRepository.findByUsername(mockUserName)).thenReturn(null);
+        Mockito.when(userRepository.findByUserName(mockUserName)).thenReturn(null);
 
         User result = userService.findByUserName(mockUserName);
 
