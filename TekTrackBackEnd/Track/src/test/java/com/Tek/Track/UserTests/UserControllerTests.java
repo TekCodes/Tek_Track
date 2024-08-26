@@ -65,7 +65,7 @@ public class UserControllerTests {
     }
 
     @Test
-    public void testGetUserByUserName() {
+    public void testGetUserByUserName() throws Exception {
         String username = "user";
         User mockUser = new User(1L, "FirstName", "LastName", "email@example.com", username, "password");
         when(userService.findByUserName(username)).thenReturn(mockUser);

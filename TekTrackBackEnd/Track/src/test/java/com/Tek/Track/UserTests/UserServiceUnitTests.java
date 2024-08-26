@@ -29,7 +29,7 @@ public class UserServiceUnitTests {
     private UserService userService;
 
     @Test // Test findByUsername
-    public void whenUserNameIsProvided_thenRetrievedUserNameIsCorrect() {
+    public void whenUserNameIsProvided_thenRetrievedUserNameIsCorrect() throws Exception {
         String mockUserName = "Username";
 
         User mockUser = new User();
@@ -151,7 +151,7 @@ public class UserServiceUnitTests {
     }
 
     @Test // test optional username return in service
-    public void whenUserNameDoesNotExist_thenReturnNull() {
+    public void whenUserNameDoesNotExist_thenReturnNull() throws Exception {
         String mockUserName = "NonExistentUser";
 
         Mockito.when(userRepository.findByUsername(mockUserName)).thenReturn(null);

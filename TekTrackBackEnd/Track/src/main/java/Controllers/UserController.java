@@ -32,7 +32,7 @@ public class UserController {
     }
 
     @GetMapping("/user/{username}")
-    public ResponseEntity<User> getUserByUserName(@PathVariable String username) {
+    public ResponseEntity<User> getUserByUserName(@PathVariable String username) throws Exception {
         // Calls the service to find a user by USERNAME and returns it with an HTTP 200 OK status.
         return new ResponseEntity<>(userService.findByUserName(username), HttpStatus.OK);
     }
