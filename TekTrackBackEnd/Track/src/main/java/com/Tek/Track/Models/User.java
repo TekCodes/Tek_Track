@@ -33,8 +33,8 @@ public class User {
     @Column(name = "password_hash", length = 60, nullable = false) // Maps the `password` field to the "password_hash" column in the database, with a max length of 60 characters and not null.
     private String password; // Defines the `password` field to store the user's password.
 
-//    @ManyToOne(fetch = FetchType.LAZY) // Specifies a many-to-one relationship between User and JobInfo, with lazy loading.
-//    private List<JobInfo> jobInfo; // Defines the `jobInfo` field to store the user's job information as a list.
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private List<JobInfo> jobInfo;
 
     public User() {} // Default constructor, required by JPA.
 
@@ -86,19 +86,19 @@ public class User {
         this.userId = userId; // Sets the user's ID.
     }
 
-    public String getfirstName() { // Getter method for `fName`.
+    public String getFirstName() { // Getter method for `fName`.
         return firstName; // Returns the user's first name.
     }
 
-    public void setfirstName(String firstName) { // Setter method for `fName`.
+    public void setFirstName(String firstName) { // Setter method for `fName`.
         this.firstName = firstName; // Sets the user's first name.
     }
 
-    public String getlastName() { // Getter method for `lName`.
+    public String getLastName() { // Getter method for `lName`.
         return lastName; // Returns the user's last name.
     }
 
-    public void setlastName(String lastName) { // Setter method for `lName`.
+    public void setLastName(String lastName) { // Setter method for `lName`.
         this.lastName = lastName; // Sets the user's last name.
     }
 
