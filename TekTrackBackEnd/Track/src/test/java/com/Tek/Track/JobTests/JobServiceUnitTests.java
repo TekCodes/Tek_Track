@@ -129,6 +129,18 @@ public class JobServiceUnitTests {
         Assert.assertEquals("updatedEmail@email.email", updatedJobInfo.getContactEmail());
     }
 
+    // Test findById when JobInfo is not found
+    @Test
+    public void whenJobIdNotFound_thenJobIsNull() {
+        Long mockId = 2L;
+
+        Mockito.when(jobRepository.findById(mockId)).thenReturn(Optional.empty());
+
+        JobInfo retrievedJobInfo = jobService.findById(mockId);
+
+        Assert.assertNull(retrievedJobInfo);
+    }
+
     
 
 }
