@@ -141,6 +141,17 @@ public class JobServiceUnitTests {
         Assert.assertNull(retrievedJobInfo);
     }
 
-    
+    // Test update when JobInfo is not found
+    @Test
+    public void whenJobIdNotFound_thenUpdateReturnsNull() {
+        Long mockId = 2L;
+        JobInfo mockUpdatedJobInfo = new JobInfo("updatedCompany", "updatedTitle", "www.updatedurl.com", "updatedDescription", new Date(), "updatedName", "updatedEmail@email.email", "555-555-5555", "updatedReferral", true, true, new User());
+
+        Mockito.when(jobRepository.findById(mockId)).thenReturn(Optional.empty());
+
+        JobInfo updatedJobInfo = jobService.update(mockId, mockUpdatedJobInfo);
+
+        Assert.assertNull(updatedJobInfo);
+    }
 
 }
