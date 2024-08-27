@@ -83,6 +83,19 @@ public class JobServiceUnitTests {
         Assert.assertEquals(2, retrievedJobList.size());
     }
 
+    // Test create method
+    @Test
+    public void whenValidJobIsProvided_thenJobIsCreated() {
+        JobInfo mockJobInfo = new JobInfo("company", "title", "www.url.com", "description", new Date(), "name", "email@email.email", "555-555-5555", "referral", true, true, new User());
+
+        Mockito.when(jobRepository.save(mockJobInfo)).thenReturn(mockJobInfo);
+
+        JobInfo createdJobInfo = jobService.create(mockJobInfo);
+
+        Assert.assertNotNull(createdJobInfo);
+        Assert.assertEquals(mockJobInfo, createdJobInfo);
+    }
+
     
 
 }
