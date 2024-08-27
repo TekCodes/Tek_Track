@@ -3,6 +3,7 @@ package com.Tek.Track.JobTests;
 import java.util.Date;
 import java.util.Optional;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mockito;
@@ -39,19 +40,33 @@ public class JobServiceUnitTests {
         String mockContactName = "name";
         String mockContactEmail = "email@email.email";
         String mockContactNumber = "555-555-5555";
-        String mockRefferal = "refferal";
+        String mockReferral = "refferal";
         Boolean mockRemote = true;
         Boolean mockResponse = true;
         User mockUser = new User(1L, "fName", "lName", "email@email.com", "userName", "password");
 
-        JobInfo mockJobInfo = new JobInfo(mockCompany, mockJobTitle, mockJobUrl, mockJobDesc, mockDateApplied, mockContactName, mockContactEmail, mockContactNumber, mockRefferal, mockRemote, mockResponse, mockUser);
+        JobInfo mockJobInfo = new JobInfo(mockCompany, mockJobTitle, mockJobUrl, mockJobDesc, mockDateApplied, mockContactName, mockContactEmail, mockContactNumber, mockReferral, mockRemote, mockResponse, mockUser);
         mockJobInfo.setJobInfoId(mockId);
 
         Mockito.when(jobRepository.findById(mockId)).thenReturn(Optional.of(mockJobInfo));
 
         JobInfo retrievedJobInfo = jobService.findById(mockId);
 
-        
+        Assert.assertNotNull(retrievedJobInfo);
+        Assert.assertEquals(mockCompany, retrievedJobInfo.getCompany());
+        Assert.assertEquals(mockJobTitle, retrievedJobInfo.getJobTitle());
+        Assert.assertEquals(mockJobUrl, retrievedJobInfo.getJobUrlLink());
+        Assert.assertEquals(mockJobDesc, retrievedJobInfo.getJobDesc());
+        Assert.assertEquals(mockDateApplied, retrievedJobInfo.getDateApplied());
+        Assert.assertEquals(mockContactName, retrievedJobInfo.getContactName());
+        Assert.assertEquals(mockContactEmail, retrievedJobInfo.getContactEmail());
+        Assert.assertEquals(mockContactNumber, retrievedJobInfo.getContactNumber());
+        Assert.assertEquals(mockReferral, retrievedJobInfo.getReferral());
+        Assert.assertTrue(retrievedJobInfo.getRemote());
+        Assert.assertTrue(retrievedJobInfo.getGotResponse());
+        Assert.assertEquals(mockUser, retrievedJobInfo.getUser());
     }
+
+    
 
 }
