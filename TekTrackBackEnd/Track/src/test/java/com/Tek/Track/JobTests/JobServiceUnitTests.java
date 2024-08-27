@@ -96,6 +96,18 @@ public class JobServiceUnitTests {
         Assert.assertEquals(mockJobInfo, createdJobInfo);
     }
 
+    // Test deleteById method
+    @Test
+    public void whenJobIdIsProvided_thenJobIsDeleted() {
+        Long mockId = 2L;
+
+        Mockito.doNothing().when(jobRepository).deleteById(mockId);
+
+        Boolean isDeleted = jobService.deleteById(mockId);
+
+        Assert.assertTrue(isDeleted);
+    }
+
     
 
 }
