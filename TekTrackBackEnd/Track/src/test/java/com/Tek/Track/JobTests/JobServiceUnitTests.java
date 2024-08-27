@@ -26,7 +26,7 @@ public class JobServiceUnitTests {
 
     @Test
     public void whenJobIdIsProvided_thenRetrievedJobIsCorrect() {
-        
+        Long mockId = 2L;
     }
 
 }
