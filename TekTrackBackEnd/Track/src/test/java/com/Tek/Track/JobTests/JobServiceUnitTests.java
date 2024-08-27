@@ -72,8 +72,8 @@ public class JobServiceUnitTests {
     @Test
     public void whenFindAll_thenAllJobsAreRetrieved() {
         List<JobInfo> mockJobList = new ArrayList<>();
-        mockJobList.add(new JobInfo("company1", "title1", "www.url1.com", "description1", new Date(), "name1", "email1@email.email", "555-555-5551", "referral1", true, true, new User())));
-        mockJobList.add(new JobInfo("company2", "title2", "www.url2.com", "description2", new Date(), "name2", "email2@email.email", "555-555-5552", "referral2", true, true, new User())));
+        mockJobList.add(new JobInfo("company1", "title1", "www.url1.com", "description1", new Date(), "name1", "email1@email.email", "555-555-5551", "referral1", true, true, new User()));
+        mockJobList.add(new JobInfo("company2", "title2", "www.url2.com", "description2", new Date(), "name2", "email2@email.email", "555-555-5552", "referral2", true, true, new User()));
 
         Mockito.when(jobRepository.findAll()).thenReturn(mockJobList);
 
@@ -106,6 +106,27 @@ public class JobServiceUnitTests {
         Boolean isDeleted = jobService.deleteById(mockId);
 
         Assert.assertTrue(isDeleted);
+    }
+
+    // Test update method
+    @Test
+    public void whenJobIdIsProvided_thenJobIsUpdated() {
+        Long mockId = 2L;
+        JobInfo mockOriginalJobInfo = new JobInfo("originalCompany", "originalTitle", "www.originalurl.com", "originalDescription", new Date(), "originalName", "originalEmail@email.email", "555-555-5555", "originalReferral", true, true, new User());
+        JobInfo mockUpdatedJobInfo = new JobInfo("updatedCompany", "updatedTitle", "www.updatedurl.com", "updatedDescription", new Date(), "updatedName", "updatedEmail@email.email", "555-555-5555", "updatedReferral", true, true, new User());
+
+        Mockito.when(jobRepository.findById(mockId)).thenReturn(Optional.of(mockOriginalJobInfo));
+        Mockito.when(jobRepository.save(mockOriginalJobInfo)).thenReturn(mockUpdatedJobInfo);
+
+        JobInfo updatedJobInfo = jobService.update(mockId, mockUpdatedJobInfo);
+
+        Assert.assertNotNull(updatedJobInfo);
+        Assert.assertEquals("updatedCompany", updatedJobInfo.getCompany());
+        Assert.assertEquals("updatedTitle", updatedJobInfo.getJobTitle());
+        Assert.assertEquals("www.updatedurl.com", updatedJobInfo.getJobUrlLink());
+        Assert.assertEquals("updatedDescription", updatedJobInfo.getJobDesc());
+        Assert.assertEquals("updatedName", updatedJobInfo.getContactName());
+        Assert.assertEquals("updatedEmail@email.email", updatedJobInfo.getContactEmail());
     }
 
     
