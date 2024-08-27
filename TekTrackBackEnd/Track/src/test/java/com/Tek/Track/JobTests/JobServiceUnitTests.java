@@ -1,8 +1,9 @@
 package com.Tek.Track.JobTests;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
-
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -65,6 +66,21 @@ public class JobServiceUnitTests {
         Assert.assertTrue(retrievedJobInfo.getRemote());
         Assert.assertTrue(retrievedJobInfo.getGotResponse());
         Assert.assertEquals(mockUser, retrievedJobInfo.getUser());
+    }
+
+    // Test findAll method
+    @Test
+    public void whenFindAll_thenAllJobsAreRetrieved() {
+        List<JobInfo> mockJobList = new ArrayList<>();
+        mockJobList.add(new JobInfo("company1", "title1", "www.url1.com", "description1", new Date(), "name1", "email1@email.email", "555-555-5551", "referral1", true, true, new User())));
+        mockJobList.add(new JobInfo("company2", "title2", "www.url2.com", "description2", new Date(), "name2", "email2@email.email", "555-555-5552", "referral2", true, true, new User())));
+
+        Mockito.when(jobRepository.findAll()).thenReturn(mockJobList);
+
+        List<JobInfo> retrievedJobList = jobService.findAll();
+
+        Assert.assertNotNull(retrievedJobList);
+        Assert.assertEquals(2, retrievedJobList.size());
     }
 
     
