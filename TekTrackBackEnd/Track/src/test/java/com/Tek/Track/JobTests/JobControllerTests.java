@@ -1,6 +1,7 @@
 package com.Tek.Track.JobTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -72,6 +73,19 @@ public class JobControllerTests {
         verify(jobService, times(1)).findById(1L);
     }
 
+    @Test
+    public void testCreateJob() {
+        when(jobService.create(any(JobInfo.class))).thenReturn(job1);
+
+        ResponseEntity<JobInfo> response = jobController.create(job1);
+
+        assertEquals(HttpStatus.CREATED, response.getStatusCode());
+        assertEquals(job1, response.getBody());
+        verify(jobService, times(1)).create(job1);
+    }
+
     
+
+
 
 }
