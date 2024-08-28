@@ -96,8 +96,17 @@ public class JobControllerTests {
         verify(jobService, times(1)).update(1L, job1);
     }
 
+    @Test
+    public void testDeleteJob() {
+        when(jobService.deleteById(1L)).thenReturn(true);
+
+        ResponseEntity<Boolean> response = jobController.deleteById(1L);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(true, response.getBody());
+        verify(jobService, times(1)).deleteById(1L);
+    }
+
     
-
-
 
 }
