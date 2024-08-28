@@ -61,6 +61,17 @@ public class JobControllerTests {
         verify(jobService, times(1)).findAll();
     }
 
+    @Test
+    public void testGetJob() {
+        when(jobService.findById(1L)).thenReturn(job1);
+
+        ResponseEntity<JobInfo> response = jobController.getJob(1L);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(job1, response.getBody());
+        verify(jobService, times(1)).findById(1L);
+    }
+
     
 
 }
