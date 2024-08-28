@@ -1,10 +1,22 @@
 package com.Tek.Track.JobTests;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import org.junit.Before;
+import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.test.context.ActiveProfiles;
 import com.Tek.Track.Controllers.JobController;
 import com.Tek.Track.Models.JobInfo;
@@ -34,5 +46,21 @@ public class JobControllerTests {
         job2.setJobInfoId(2L);
         job2.setJobTitle("Data Scientist");
     }
+
+    @Test
+    public void testGetAllJobs() {
+        List<JobInfo> jobs = new ArrayList<>();
+        jobs.add(job1);
+        jobs.add(job2);
+        when(jobService.findAll()).thenReturn(jobs);
+
+        ResponseEntity<List<JobInfo>> response = jobController.getAllJobs();
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(2, response.getBody().size());
+        verify(jobService, times(1)).findAll();
+    }
+
+    
 
 }
