@@ -2,6 +2,7 @@ package com.Tek.Track.JobTests;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -82,6 +83,17 @@ public class JobControllerTests {
         assertEquals(HttpStatus.CREATED, response.getStatusCode());
         assertEquals(job1, response.getBody());
         verify(jobService, times(1)).create(job1);
+    }
+
+    @Test
+    public void testUpdateJob() {
+        when(jobService.update(eq(1L), any(JobInfo.class))).thenReturn(job1);
+
+        ResponseEntity<JobInfo> response = jobController.update(1L, job1);
+
+        assertEquals(HttpStatus.OK, response.getStatusCode());
+        assertEquals(job1, response.getBody());
+        verify(jobService, times(1)).update(1L, job1);
     }
 
     
