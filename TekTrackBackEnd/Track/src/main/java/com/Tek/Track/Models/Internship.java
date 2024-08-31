@@ -58,6 +58,10 @@ public class Internship {
     @Column(length = 100)
     private String jobLink;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id")
+    private User user;
+
     //Constructors
     public Internship() {} //Default constructor, required by JPA
 
@@ -197,6 +201,14 @@ public class Internship {
 
     public void setJobLink(String jobLink) {
         this.jobLink = jobLink;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
 }
