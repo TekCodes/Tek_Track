@@ -12,13 +12,12 @@ import com.Tek.Track.Repositories.UserRepository;
 @Service
 public class UserService implements UserDetailsService {
 
+    @Autowired
     private final UserRepository userRepository;
 
-    @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
-
 
     public List<User> findAll() { // Method adjusted to return a list of all users
         Iterable<User> usersIterable = userRepository.findAll();
@@ -26,7 +25,6 @@ public class UserService implements UserDetailsService {
         usersIterable.forEach(usersList::add);
         return usersList; 
     }
-
 
     public User findById(Long id) {
         Optional<User> optionalUser = userRepository.findById(id);  // Attempts to find a user by ID, wrapped in an Optional
