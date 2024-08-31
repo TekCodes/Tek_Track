@@ -9,13 +9,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class InternshipService {
 
-        //Inject interviewRepository
     @Autowired 
     private InternshipRepository internshipRepository;
 
-    //Constructor for interviewService to initialize interviewRepository
     public InternshipService(InternshipRepository internshipRepository) {
         this.internshipRepository = internshipRepository;
+    }
+
+    public List<Internship> findJobsByUserId(Long userId) {
+        return internshipRepository.findByUserUserId(userId);
     }
 
     //Retrieve all interviews from the repository

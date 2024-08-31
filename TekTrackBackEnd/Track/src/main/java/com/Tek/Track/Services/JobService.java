@@ -16,6 +16,10 @@ public class JobService {
         this.jobRepository = jobRepository;
     }
 
+    public List<JobInfo> findJobsByUserId(Long userId) {
+        return jobRepository.findByUserUserId(userId);
+    }
+
     public List<JobInfo> findAll() { // Method adjusted to return a list of all users
         Iterable<JobInfo> jobInfoIterable = jobRepository.findAll();
         List<JobInfo> jobInfoList = new ArrayList<>();
@@ -66,5 +70,4 @@ public class JobService {
         return jobRepository.save(originalJobInfo);
     }
 
-    
 }
