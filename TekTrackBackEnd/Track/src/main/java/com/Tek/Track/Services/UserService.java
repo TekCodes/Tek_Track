@@ -2,22 +2,24 @@ package com.Tek.Track.Services;
 
 import java.util.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import com.Tek.Track.Models.User;
 import com.Tek.Track.Repositories.UserRepository;
 
-@Service  // Marks this class as a service component, so it can be detected and managed by Spring
-public class UserService {
+@Service
+public class UserService implements UserDetailsService {
 
-    @Autowired  // Automatically injects the UserRepository dependency into this field
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
-    // Constructor for UserService to initialize the userRepository field
+    @Autowired
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    // Method to retrieve all users from the repository
+
     public List<User> findAll() { // Method adjusted to return a list of all users
         Iterable<User> usersIterable = userRepository.findAll();
         List<User> usersList = new ArrayList<>();
@@ -25,7 +27,7 @@ public class UserService {
         return usersList; 
     }
 
-    // Method to find a user by their ID
+
     public User findById(Long id) {
         Optional<User> optionalUser = userRepository.findById(id);  // Attempts to find a user by ID, wrapped in an Optional
 
@@ -62,12 +64,6 @@ public class UserService {
         return true;  // Returns true to indicate successful deletion
     }
 
-    // // Method to delete a user by the user object
-    // public Boolean deleteByUserName(User user) {
-    //     userRepository.delete(user);  // Deletes the given user object from the repository
-    //     return true;  // Returns true to indicate successful deletion
-    // }
-
     public Boolean deleteByUserName(String userName) {
         // Find the user by username
         User user = userRepository.findByUserName(userName);
@@ -94,8 +90,19 @@ public class UserService {
         User originalUser = optionalUser.get();  // Retrieves the existing user from the Optional
         originalUser.setFirstName(newUserData.getFirstName());  // Updates the first name
         originalUser.setLastName(newUserData.getLastName());  // Updates the last name
-        originalUser.setUserName(newUserData.getUserName());  // Updates the username
+        originalUser.setUsername(newUserData.getUsername());  // Updates the username
         originalUser.setPassword(newUserData.getPassword());  // Updates the password
         return userRepository.save(originalUser);  // Saves the updated user and returns the saved user
+    }
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userRepository.findByUserName(username);
+
+        if (user == null) {
+            throw new UsernameNotFoundException("User not found with username: " + username);
+        }
+
+        return user;  // Since User implements UserDetails, you can return it directly.
     }
 }
