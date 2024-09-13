@@ -10,4 +10,6 @@ public class TrackApplication {
 		SpringApplication.run(TrackApplication.class, args);
 	}
 
+	// JWTAuth implemented and working
+
 }
