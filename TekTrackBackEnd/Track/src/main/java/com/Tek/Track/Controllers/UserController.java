@@ -41,12 +41,12 @@ public class UserController {
         return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
     }
 
-    @GetMapping("/user/{username}")
+    @GetMapping("/user/{username}") 
     public ResponseEntity<User> getUserByUserName(@PathVariable String username) throws Exception {
         return new ResponseEntity<>(userService.findByUserName(username), HttpStatus.OK);
     }
 
-    @PostMapping("/new_user")
+    @PostMapping("/new_user") // POSTMAN TESTED
     public ResponseEntity<User> create(@RequestBody User user) {
         return new ResponseEntity<>(userService.create(user), HttpStatus.CREATED);
     }
