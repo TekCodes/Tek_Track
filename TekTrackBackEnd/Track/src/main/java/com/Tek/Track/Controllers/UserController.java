@@ -41,7 +41,7 @@ public class UserController {
         return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
     }
 
-    @GetMapping("/user/{username}") 
+    @GetMapping("/user/{username}") // POSTMAN TESTED
     public ResponseEntity<User> getUserByUserName(@PathVariable String username) throws Exception {
         return new ResponseEntity<>(userService.findByUserName(username), HttpStatus.OK);
     }
