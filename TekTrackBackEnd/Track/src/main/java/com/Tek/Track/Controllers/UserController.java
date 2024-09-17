@@ -31,22 +31,22 @@ public class UserController {
         return new ResponseEntity<>(userService.findByUserName(username), HttpStatus.OK);
     }
 
-    @GetMapping("/users")
+    @GetMapping("/users") // POSTMAN TESTED
     public ResponseEntity<List<User>> getAllUsers() {
         return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/user")
+    @GetMapping("/user") // POSTMAN TESTED
     public ResponseEntity<User> getUserById(@PathVariable Long id) {
         return new ResponseEntity<>(userService.findById(id), HttpStatus.OK);
     }
 
-    @GetMapping("/user/{username}")
+    @GetMapping("/user/{username}") // POSTMAN TESTED
     public ResponseEntity<User> getUserByUserName(@PathVariable String username) throws Exception {
         return new ResponseEntity<>(userService.findByUserName(username), HttpStatus.OK);
     }
 
-    @PostMapping("/new_user")
+    @PostMapping("/new_user") // POSTMAN TESTED
     public ResponseEntity<User> create(@RequestBody User user) {
         return new ResponseEntity<>(userService.create(user), HttpStatus.CREATED);
     }
