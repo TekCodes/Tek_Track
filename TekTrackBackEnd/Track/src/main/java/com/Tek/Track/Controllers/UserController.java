@@ -31,7 +31,7 @@ public class UserController {
         return new ResponseEntity<>(userService.findByUserName(username), HttpStatus.OK);
     }
 
-    @GetMapping("/users")
+    @GetMapping("/users") // POSTMAN TESTED
     public ResponseEntity<List<User>> getAllUsers() {
         return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
     }
